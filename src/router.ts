@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Restaurant from './views/restaurant/Restaurant.vue';
+import RestaurantDetail from './views/restaurant/RestaurantDetail.vue';
 import Admin from './views/Admin.vue';
 import Customer from '@/views/customer/Customer.vue';
 import Supplier from '@/views/supplier/Supplier.vue';
@@ -18,6 +19,7 @@ export default new Router({
         {path: '/login', name: 'login', component: Login},
         {path: '/register', name: 'register', component: Register},
         {path: '/restaurant', name: 'restaurant', component: Restaurant},
+        {path: '/restaurant/:id', name: 'restaurant-detail', component: RestaurantDetail, props: true},
         {path: '/meal', name: 'meal', component: Meal},
         {path: '/order', name: 'order', component: Order},
         {path: '/admin', name: 'admin', component: Admin},
@@ -31,6 +33,6 @@ export default new Router({
             component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
         }
     ],
-    linkActiveClass: "active",
-    linkExactActiveClass: "exact-active"
+    linkActiveClass: 'active',
+    linkExactActiveClass: 'exact-active'
 });
