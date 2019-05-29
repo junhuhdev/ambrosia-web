@@ -6,7 +6,7 @@
                 <b-col cols="4" v-for="restaurant of restaurants" v-bind:key="restaurant.id">
                     <b-link class="custom-card" :to="{name: 'restaurant-detail', params: {id: restaurant.id}}">
                         <b-card :title="restaurant.name" img-src="https://picsum.photos/300/300/?image=41" img-alt="Image" img-top style="margin-top: 2rem;">
-                            <b-card-text><b>Description:</b> {{restaurant.description}}</b-card-text>
+                            <b-card-text><b>Description:</b> {{restaurant.shortDescription}}</b-card-text>
                             <b-card-text><b>Status:</b> {{restaurant.status}}</b-card-text>
                             <div slot="footer">
                                 <small class="text-muted">Last updated 3 mins ago</small>
