@@ -18,7 +18,6 @@
     </b-card-group>
   </b-container>
 </template>
-
 <script>
  import { Component, Vue } from 'vue-property-decorator';
  import axios from 'axios';
@@ -44,7 +43,6 @@
 
  };
 </script>
-
 <style scoped>
   li {
     list-style: none;
@@ -55,5 +53,4 @@
     color: inherit;
     text-decoration: none;
   }
-
 </style>
