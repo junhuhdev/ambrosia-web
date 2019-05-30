@@ -20,13 +20,13 @@
             <b-card-text><b>Description:</b> {{meal.description}}</b-card-text>
             <div slot="footer">
               <small class="text-muted">Cost: {{meal.amount}} {{meal.amountCy}}</small>
+              <b-button variant="primary">Lägg till</b-button>
             </div>
           </b-card>
         </b-link>
       </b-col>
 
     </b-row>
-
 
   </b-container>
 </template>

@@ -1,12 +1,18 @@
 <template>
-    <h1>Login</h1>
-    
+  <h1>Login</h1>
+
 </template>
 
 <script>
-  export default {
-    name: 'Login'
-  };
+ import axios from 'axios';
+
+ export default {
+  name: 'Login',
+
+  data () {
+   return {};
+  }
+ };
 </script>
 
 <style scoped>
