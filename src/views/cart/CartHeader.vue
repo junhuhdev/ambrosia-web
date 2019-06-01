@@ -5,18 +5,18 @@
     <div class="cart-items" v-show="showCart">
       <table class="cartTable">
         <tbody>
-        <tr class="product" v-for="product in cart">
+        <tr class="product" v-for="product in meals">
           <td class="align-left">
             <div class="cartImage" @click="removeCartItem(product)" style="background-size: cover; background-position: center;"><i class="close fa fa-times"></i></div>
           </td>
           <td class="align-center">
             <button @click="quantityChange(product, 'decrement')"><i class="close fa fa-minus"></i></button>
           </td>
-          <td class="align-center">{{ cart[$index].quantity }}</td>
+          <td class="align-center">{{ meals[$index].quantity }}</td>
           <td class="align-center">
             <button @click="quantityChange(product, 'increment')"><i class="close fa fa-plus"></i></button>
           </td>
-          <td class="align-center">{{ cart[$index] | customPluralize }}</td>
+          <td class="align-center">{{ product.name }}</td>
           <td>{{ product.price | currency }}</td>
         </tr>
         </tbody>
@@ -24,48 +24,47 @@
     </div>
   </div>
 </template>
-<script>
- export default {
-  data () {
-   return {
-    showCart: false
-   };
-  },
+<script lang="ts">
+  import Vue from 'vue';
 
-  filters: {
-   customPluralize: function (cart) {
-    let newName;
-    if (cart.quantity > 1) {
-     if (cart.product === 'Peach') {
-      newName = cart.product + 'es';
-     } else if (cart.product === 'Puppy') {
-      newName = cart.product + 'ies';
-      newName = newName.replace('y', '');
-     } else {
-      newName = cart.product + 's';
-     }
-     return newName;
+  export default Vue.extend({
+    data() {
+      return {
+        showCart: false
+      };
+    },
+
+    computed: {
+      meals() {
+        return this.$store.getters.cartItems;
+      },
+
+      total() {
+        return this.$store.getters.cartTotal;
+      }
+    },
+
+    filters: {
+      cartSize(cart: any) {
+        let cartSize = 0;
+        for (let i = 0; i < cart.length; i++) {
+          cartSize += cart[i].quantity;
+        }
+        return cartSize;
+      }
+    },
+
+    methods: {
+      removeCartItem() {
+      },
+
+      clearCart() {
+      },
+
+      quantityChange() {
+      }
     }
-    return cart.product;
-   },
-
-   cartSize: function (cart) {
-    let cartSize = 0;
-    for (let i = 0; i < cart.length; i++) {
-     cartSize += cart[i].quantity;
-    }
-    return cartSize;
-   }
-  },
-
-  methods: {
-   removeCartItem () {},
-
-   clearCart () {},
-
-   quantityChange () {}
-  }
- };
+  });
 </script>
 <style scoped>
 </style>
