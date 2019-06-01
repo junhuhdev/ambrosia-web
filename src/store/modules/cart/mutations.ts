@@ -16,22 +16,18 @@ export const mutations: MutationTree<CartState> = {
     const record = state.added.find((p) => p.id == payload.id);
     if (!record) {
       payload.quantity = 1;
-      state.added.push(payload);
-      // state.added = [...state.added, {payload}];
+      state.added = [...state.added, payload];
     }
   },
 
   [INCREMENT_CART_ITEM]: (state: CartState, payload: Meal) => {
-    // const record = state.added.find((p) => p.id == payload.id);
-    // if (record) {
-    //   record.quantity++;
-    // }
-    payload.quantity++;
-    state.added = [
-      ...state.added.filter(e => e.id !== payload.id),
-      payload
-    ]
-
+    state.added = state.added.map(meal => {
+      if (meal.id === payload.id) {
+        payload.quantity++;
+        return Object.assign({}, meal, payload);
+      }
+      return meal;
+    });
   },
 
   [REMOVE_FROM_CART]: (state: CartState, payload: Meal) => {
