@@ -11,7 +11,7 @@
       <b-button variant="primary" href="#">Do Something</b-button>
       <b-button variant="success" href="#">Do Something Else</b-button>
     </b-jumbotron>
-    <ShoppingCart/>
+    <Cart/>
     <b-row v-for="menu of restaurant.menus" :key="menu.id">
       <h3>{{menu.category}}</h3>
       <b-col cols="4" v-for="meal of menu.meals" v-bind:key="meal.id">
@@ -29,38 +29,38 @@
   </b-container>
 </template>
 <script lang="ts">
- import Vue from 'vue';
- import axios from 'axios';
- import ShoppingCart from '@/views/cart/ShoppingCart.vue';
+  import Vue from 'vue';
+  import axios from 'axios';
+  import Cart from '@/views/cart/Cart.vue';
 
- export default Vue.extend({
-  name: 'RestaurantDetail',
-  components: {ShoppingCart},
-  data() {
-   return {
-    restaurant: {}
-   };
-  },
+  export default Vue.extend({
+    name: 'RestaurantDetail',
+    components: {Cart},
+    data() {
+      return {
+        restaurant: {}
+      };
+    },
 
-  props: ['id'],
+    props: ['id'],
 
-  created() {
-   axios.get(`http://localhost:9000/restaurants/${this.id}`)
-   .then(response => {
-    this.restaurant = response.data;
-   })
-   .catch(e => {
-    console.log(e);
-   });
-  },
+    created() {
+      axios.get(`http://localhost:9000/restaurants/${this.id}`)
+        .then(response => {
+          this.restaurant = response.data;
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
 
-  methods: {
-   addToCart(meal: any) {
-    this.$store.dispatch('addToCart', meal);
-   }
-  }
+    methods: {
+      addToCart(meal: any) {
+        this.$store.dispatch('addToCart', meal);
+      }
+    }
 
- });
+  });
 </script>
 <style scoped>
   li {
