@@ -1,7 +1,7 @@
 import { Meal } from '@/model/meal';
 
 export interface CartState {
-  added: Array<Meal>;
+  added: Meal[];
 }
 
 export const initialState = (): CartState => {

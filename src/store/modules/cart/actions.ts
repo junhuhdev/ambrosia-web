@@ -8,14 +8,15 @@ import {
   REMOVE_FROM_CART
 } from '@/store/modules/cart/types';
 import { CartState } from '@/store/modules/cart/state';
+import { Meal } from '@/model/meal';
 
 export const actions: ActionTree<CartState, RootState> = {
   getAllCartItems({commit}: ActionContext<CartState, RootState>) {
     commit(GET_ALL_CART_ITEMS);
   },
 
-  addToCart({state, rootState, commit}: ActionContext<CartState, RootState>, meal: any): void {
-    const record = state.added.find((p) => p.id == meal.id);
+  addToCart({state, rootState, commit}: ActionContext<CartState, RootState>, meal: Meal): void {
+    const record = state.added.find((existingMeal) => existingMeal.id == meal.id);
     if (!record) {
       commit(ADD_TO_CART, meal);
     } else {
