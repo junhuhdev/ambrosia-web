@@ -3,7 +3,7 @@
     <h2>Cart</h2>
     <ul>
       <li v-for="meal in meals" :key="meal.id">
-        {{meal.name}} - {{meal.amount | meal.amountCy}} x {{meal.quantity}}
+        {{meal.name}} - {{meal.amount}}{{meal.amountCy}} x {{meal.quantity}}
       </li>
     </ul>
     <p>Total: </p>
@@ -21,6 +21,10 @@
       meals() {
         return this.$store.getters.getCartItems;
       }
+    },
+
+    created() {
+
     }
 
   });

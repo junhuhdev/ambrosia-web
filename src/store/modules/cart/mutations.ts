@@ -11,7 +11,7 @@ export const mutations: MutationTree<CartState> = {
       payload.quantity = 1;
       state.mealsAdded.push(payload);
     } else {
-      payload.quantity++;
+      record.quantity++;
     }
   },
 
