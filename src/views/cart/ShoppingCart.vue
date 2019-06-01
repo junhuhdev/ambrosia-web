@@ -6,7 +6,7 @@
         {{meal.name}} - {{meal.amount}}{{meal.amountCy}} x {{meal.quantity}}
       </li>
     </ul>
-    <p>Total: </p>
+    <p>Total: {{total}}</p>
     <!--    <button @click="checkout(products)">Checkout</button>-->
     <!--    <p v-show="checkoutStatus">Checkout {{checkoutStatus}}</p>-->
   </div>
@@ -17,15 +17,34 @@
   import { Meal } from '@/model/meal';
 
   export default Vue.extend({
-    computed: {
-      meals() {
-        return this.$store.getters.getCartItems;
-      }
+    data() {
+      return {
+        mealsAdded: []
+      };
     },
 
-    created() {
+    computed: {
+      meals() {
+        return this.$store.getters.cartItems;
+      },
 
+      total() {
+        return this.$store.getters.cartTotal;
+      }
+
+      // ...mapState(['getCartItems'])
     }
+
+    //
+    // updated() {
+    //   this.meals = this.$store.getters.getCartItems;
+    // }
+
+    // methods: {
+    //   getMeals() {
+    //     return this.$store.getters.getCartItems;
+    //   }
+    // }
 
   });
 </script>

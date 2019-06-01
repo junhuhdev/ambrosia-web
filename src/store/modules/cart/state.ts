@@ -1,11 +1,11 @@
 import { Meal } from '@/model/meal';
 
 export interface CartState {
-  mealsAdded: Array<Meal>;
+  added: Array<Meal>;
 }
 
 export const initialState = (): CartState => {
   return {
-    mealsAdded: []
+    added: []
   };
 };
