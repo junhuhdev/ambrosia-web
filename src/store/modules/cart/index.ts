@@ -8,8 +8,8 @@ import { initialState, CartState } from '@/store/modules/cart/state';
 export * from './state';
 
 export const store: Module<CartState, RootState> = {
-  state: initialState,
-  mutations,
-  actions,
-  getters
+ state: initialState,
+ mutations,
+ actions,
+ getters
 };

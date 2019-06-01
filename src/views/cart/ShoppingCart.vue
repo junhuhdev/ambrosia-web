@@ -17,11 +17,6 @@
   import { Meal } from '@/model/meal';
 
   export default Vue.extend({
-    data() {
-      return {
-        mealsAdded: []
-      };
-    },
 
     computed: {
       meals() {
@@ -32,19 +27,7 @@
         return this.$store.getters.cartTotal;
       }
 
-      // ...mapState(['getCartItems'])
     }
-
-    //
-    // updated() {
-    //   this.meals = this.$store.getters.getCartItems;
-    // }
-
-    // methods: {
-    //   getMeals() {
-    //     return this.$store.getters.getCartItems;
-    //   }
-    // }
 
   });
 </script>

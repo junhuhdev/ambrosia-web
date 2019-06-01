@@ -29,38 +29,38 @@
   </b-container>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
-  import axios from 'axios';
-  import ShoppingCart from '@/views/cart/ShoppingCart.vue';
+ import Vue from 'vue';
+ import axios from 'axios';
+ import ShoppingCart from '@/views/cart/ShoppingCart.vue';
 
-  export default Vue.extend({
-    name: 'RestaurantDetail',
-    components: {ShoppingCart},
-    data() {
-      return {
-        restaurant: {}
-      };
-    },
+ export default Vue.extend({
+  name: 'RestaurantDetail',
+  components: {ShoppingCart},
+  data() {
+   return {
+    restaurant: {}
+   };
+  },
 
-    props: ['id'],
+  props: ['id'],
 
-    created() {
-      axios.get(`http://localhost:9000/restaurants/${this.id}`)
-        .then(response => {
-          this.restaurant = response.data;
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
+  created() {
+   axios.get(`http://localhost:9000/restaurants/${this.id}`)
+   .then(response => {
+    this.restaurant = response.data;
+   })
+   .catch(e => {
+    console.log(e);
+   });
+  },
 
-    methods: {
-      addToCart(meal: any) {
-        this.$store.dispatch('addToCart', meal);
-      }
-    }
+  methods: {
+   addToCart(meal: any) {
+    this.$store.dispatch('addToCart', meal);
+   }
+  }
 
-  });
+ });
 </script>
 <style scoped>
   li {
