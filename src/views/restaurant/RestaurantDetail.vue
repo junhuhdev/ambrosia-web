@@ -11,7 +11,6 @@
       <b-button variant="primary" href="#">Do Something</b-button>
       <b-button variant="success" href="#">Do Something Else</b-button>
     </b-jumbotron>
-    <Cart/>
     <b-row v-for="menu of restaurant.menus" :key="menu.id">
       <h3>{{menu.category}}</h3>
       <b-col cols="4" v-for="meal of menu.meals" v-bind:key="meal.id">
@@ -35,7 +34,7 @@
 
   export default Vue.extend({
     name: 'RestaurantDetail',
-    components: {Cart},
+    // components: {Cart},
     data() {
       return {
         restaurant: {}

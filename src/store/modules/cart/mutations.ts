@@ -23,6 +23,7 @@ export const mutations: MutationTree<CartState> = {
   [INCREMENT_CART_ITEM]: (state: CartState, payload: Meal) => {
     state.added = state.added.map(meal => {
       if (meal.id === payload.id) {
+        console.log('PAYLOAD ' + JSON.stringify(payload));
         payload.quantity++;
         return Object.assign({}, meal, payload);
       }
