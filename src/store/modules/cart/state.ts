@@ -1,20 +1,11 @@
-interface Meal {
-    id: number
-    menuId: number
-    name: string
-    description: string
-    amount: number
-    amountCy: string
-    created: string
-    updated: string
-}
+import { Meal } from '@/model/meal';
 
 export interface CartState {
-    meals: Array<Meal>;
+    mealsAdded: Array<Meal>;
 }
 
 export const initialState = (): CartState => {
     return {
-        meals: []
+        mealsAdded: []
     };
 };

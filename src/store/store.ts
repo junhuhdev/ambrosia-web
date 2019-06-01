@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import * as cart from '@/store/modules/cart';
-import * as product from '@/store/modules/product';
 
 Vue.use(Vuex);
 
