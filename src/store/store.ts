@@ -1,14 +1,17 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import cart from './modules/cart';
-import products from './modules/cart';
+import * as cart from '@/store/modules/cart';
+import * as product from '@/store/modules/product';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
- modules: {
-  cart,
-  products
- },
- strict: true
+export interface RootState {
+    cart: cart.CartState
+}
+
+export default new Vuex.Store<RootState>({
+    modules: {
+        cart: cart.store
+    },
+    strict: true
 });
