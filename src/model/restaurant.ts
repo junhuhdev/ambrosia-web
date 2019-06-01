@@ -1,17 +1,19 @@
 import { Money } from '@/model/money';
 import { Shipping } from '@/model/shipping';
 import { Address } from '@/model/address';
+import { RangeLimit } from '@/model/rangelimit';
 
 export interface Restaurant {
   id: number
   name: string
   description: string
   status: string
-  recipientLimit: any
+  recipientLimit: RangeLimit
   minimumOrderAmount: Money
   shipping: Shipping
   address: Address
 }
+
 
 export const restaurantInitialState = (): Restaurant => {
   return {
@@ -19,7 +21,10 @@ export const restaurantInitialState = (): Restaurant => {
     name: '',
     description: '',
     status: '',
-    recipientLimit: null,
+    recipientLimit: {
+      from: 0,
+      to: 100
+    },
     minimumOrderAmount: {
       amount: 0,
       currency: ''
