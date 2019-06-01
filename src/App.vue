@@ -34,6 +34,7 @@
             <b-dropdown-item href="#">Profile</b-dropdown-item>
             <b-dropdown-item href="#">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
+          <CartHeader/>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -41,6 +42,16 @@
     <router-view/>
   </div>
 </template>
+<script lang="ts">
+  import Vue from 'vue';
+  import CartHeader from '@/views/cart/CartHeader.vue';
+
+  export default Vue.extend({
+    components: {CartHeader}
+  })
+
+</script>
+
 <style>
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
