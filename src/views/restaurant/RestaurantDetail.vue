@@ -11,8 +11,8 @@
       <b-button variant="primary" href="#">Do Something</b-button>
       <b-button variant="success" href="#">Do Something Else</b-button>
     </b-jumbotron>
-
-    <b-row v-for="menu of restaurant.menus">
+    <ShoppingCart></ShoppingCart>
+    <b-row v-for="menu of restaurant.menus" :key="menu.id">
       <h3>{{menu.category}}</h3>
       <b-col cols="4" v-for="meal of menu.meals" v-bind:key="meal.id">
         <b-link class="custom-card" :to="{name: 'restaurant-detail', params: {id: meal.id}}">
@@ -20,44 +20,48 @@
             <b-card-text><b>Description:</b> {{meal.description}}</b-card-text>
             <div slot="footer">
               <small class="text-muted">Cost: {{meal.amount}} {{meal.amountCy}}</small>
-              <b-button variant="primary">Lägg till</b-button>
+              <b-button @click="addToCart(meal)" variant="primary">Lägg till</b-button>
             </div>
           </b-card>
         </b-link>
       </b-col>
-
     </b-row>
-
   </b-container>
 </template>
+<script lang="ts">
+  import Vue from 'vue';
+  import axios from 'axios';
+  import ShoppingCart from '@/views/cart/ShoppingCart.vue';
 
-<script>
- import axios from 'axios';
+  export default Vue.extend({
+    name: 'RestaurantDetail',
+    components: {ShoppingCart},
+    data() {
+      return {
+        restaurant: {}
+      };
+    },
 
- export default {
-  name: 'RestaurantDetail',
-  data () {
-   return {
-    restaurant: {},
-    errors: []
-   };
-  },
+    props: ['id'],
 
-  props: ['id'],
+    created() {
+      axios.get(`http://localhost:9000/restaurants/${this.id}`)
+        .then(response => {
+          this.restaurant = response.data;
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
 
-  created () {
-   axios.get(`http://localhost:9000/restaurants/${this.id}`)
-    .then(response => {
-     this.restaurant = response.data;
-    })
-    .catch(e => {
-     this.errors.push(e);
-    });
-  }
+    methods: {
+      addToCart(meal: any) {
+        this.$store.dispatch('addToCart', meal);
+      }
+    }
 
- };
+  });
 </script>
-
 <style scoped>
   li {
     list-style: none;
@@ -68,5 +72,4 @@
     color: inherit;
     text-decoration: none;
   }
-
 </style>

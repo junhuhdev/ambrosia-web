@@ -5,6 +5,6 @@ import { RootState } from '@/store/store';
 
 export const getters: GetterTree<CartState, RootState> = {
 
-    getCartItems: (state: CartState) => state.mealsAdded
+  getCartItems: (state: CartState) => state.mealsAdded
 
 };

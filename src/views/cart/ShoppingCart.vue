@@ -2,36 +2,28 @@
   <div>
     <h2>Cart</h2>
     <ul>
-      <li v-for="product in products" :key="product.id">
-        {{product.title}} - {{product.price | currency}} x {{product.quantity}}
+      <li v-for="meal in meals" :key="meal.id">
+        {{meal.name}} - {{meal.amount | meal.amountCy}} x {{meal.quantity}}
       </li>
     </ul>
-    <p>Total: {{total | currency}}</p>
-    <button @click="checkout(products)">Checkout</button>
-    <p v-show="checkoutStatus">Checkout {{checkoutStatus}}</p>
+    <p>Total: </p>
+    <!--    <button @click="checkout(products)">Checkout</button>-->
+    <!--    <p v-show="checkoutStatus">Checkout {{checkoutStatus}}</p>-->
   </div>
 </template>
-<script>
- import { mapGetters, mapState } from 'vuex';
+<script lang="ts">
+  import Vue from 'vue';
+  import { mapGetters, mapState } from 'vuex';
+  import { Meal } from '@/model/meal';
 
- export default {
-  computed: {
-   ...mapState({
-    checkoutStatus: state => state.cart.checkoutStatus
-   }),
-   ...mapGetters('cart', {
-    products: 'cartProducts',
-    total: 'cartTotalPrice'
-   })
-  },
+  export default Vue.extend({
+    computed: {
+      meals() {
+        return this.$store.getters.getCartItems;
+      }
+    }
 
-  methods: {
-   checkout (products) {
-    this.$store.dispatch('cart/checkout', products);
-   }
-  }
-
- };
+  });
 </script>
 <style scoped>
 </style>

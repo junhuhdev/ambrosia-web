@@ -5,12 +5,12 @@ import * as cart from '@/store/modules/cart';
 Vue.use(Vuex);
 
 export interface RootState {
-    cart: cart.CartState
+  cart: cart.CartState
 }
 
 export default new Vuex.Store<RootState>({
-    modules: {
-        cart: cart.store
-    },
-    strict: true
+  modules: {
+    cart: cart.store
+  },
+  strict: true
 });
