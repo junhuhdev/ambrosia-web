@@ -34,23 +34,17 @@
 
   export default Vue.extend({
     name: 'RestaurantDetail',
-    // components: {Cart},
-    data() {
-      return {
-        restaurant: {}
-      };
-    },
 
     props: ['id'],
 
+    computed: {
+      restaurant() {
+        return this.$store.getters.restaurantDetails;
+      }
+    },
+
     created() {
-      axios.get(`http://localhost:9000/restaurants/${this.id}`)
-        .then(response => {
-          this.restaurant = response.data;
-        })
-        .catch(e => {
-          console.log(e);
-        });
+      this.$store.dispatch('getRestaurantDetails', this.id);
     },
 
     methods: {

@@ -16,11 +16,11 @@ export const actions: ActionTree<CartState, RootState> = {
   },
 
   addToCart({state, rootState, commit}: ActionContext<CartState, RootState>, meal: Meal): void {
-    const record = state.added.find((existingMeal) => existingMeal.id == meal.id);
-    if (!record) {
+    const existingMeal = state.added.find((existingMeal) => existingMeal.id == meal.id);
+    if (!existingMeal) {
       commit(ADD_TO_CART, meal);
     } else {
-      commit(INCREMENT_CART_ITEM, meal);
+      commit(INCREMENT_CART_ITEM, existingMeal);
     }
   },
 

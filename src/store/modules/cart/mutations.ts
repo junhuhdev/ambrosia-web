@@ -15,17 +15,6 @@ export const mutations: MutationTree<CartState> = {
   [ADD_TO_CART]: (state: CartState, payload: Meal) => {
     const record = state.added.find((p) => p.id == payload.id);
     if (!record) {
-      // state.added.push({
-      //   id: payload.id,
-      //   menuId: payload.menuId,
-      //   name: payload.name,
-      //   description: payload.description,
-      //   amount: payload.amount,
-      //   amountCy: payload.amountCy,
-      //   created: payload.created,
-      //   updated: payload.updated,
-      //   quantity: 1
-      // })
       payload.quantity = 1;
       state.added = [...state.added, payload];
     }
@@ -34,7 +23,6 @@ export const mutations: MutationTree<CartState> = {
   [INCREMENT_CART_ITEM]: (state: CartState, payload: Meal) => {
     state.added = state.added.map(meal => {
       if (meal.id === payload.id) {
-        console.log('PAYLOAD ' + JSON.stringify(payload));
         payload.quantity++;
         return Object.assign({}, meal, payload);
       }

@@ -7,6 +7,6 @@ export const getters: GetterTree<RestaurantState, RootState> = {
 
   restaurantDetails: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {
     return state.restaurantDetail;
-  }
+  },
 
 };
