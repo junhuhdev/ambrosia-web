@@ -14,6 +14,9 @@ export const getters: GetterTree<MenuState, RootState> = {
   },
 
   menuOptions: (state: MenuState, getters: any, rootState: RootState, rootGetters: any) => {
+    // if (!state.menus) {
+    //   return [];
+    // }
     return state.menus.map(menu => {
       return {
         value: menu.id,

@@ -5,8 +5,8 @@
       <b-form-group label="Select Restaurant">
         <b-form-select v-model="selectedRestaurant" :options="restaurantsOption"></b-form-select>
       </b-form-group>
-      <b-form-group v-show="selectedRestaurant !== ''" label="Select Restaurant Menu">
-        <b-form-select v-model="meal.menuId" :options="getMenuById"></b-form-select>
+      <b-form-group v-if="selectedRestaurant !== ''" label="Select Restaurant Menu">
+        <b-form-select v-model="meal.menuId" :options="menuOptions"></b-form-select>
       </b-form-group>
       <b-form-group>
         <b-button type="submit" variant="primary">Create</b-button>
@@ -23,7 +23,8 @@
     data() {
       return {
         meal: mealInitialState(),
-        selectedRestaurant: ''
+        selectedRestaurant: '',
+        menuOptions: []
       };
     },
 
@@ -32,10 +33,14 @@
         return this.$store.getters.restaurantsOption;
       },
 
-      menusOption(): any {
+    },
 
+    watch: {
+      selectedRestaurant(newVal, oldVal) {
+        if (newVal !== null) {
+          this.getMenuById(newVal);
+        }
       }
-
     },
 
     created() {
@@ -51,11 +56,10 @@
         e.preventDefault();
       },
 
-      getMenuById(e: Event) {
-        e.preventDefault;
-        if (this.selectedRestaurant !== '') {
+      getMenuById(restaurantId: string) {
+        if (restaurantId !== '') {
           this.$store.dispatch('searchMenus', this.selectedRestaurant);
-          return this.$store.getters.menus;
+          this.menuOptions = this.$store.getters.menuOptions;
         }
       }
     }

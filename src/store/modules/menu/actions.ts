@@ -17,15 +17,17 @@ export const actions: ActionTree<MenuState, RootState> = {
 
   },
 
-  searchMenus({commit}: ActionContext<MenuState, RootState>, restaurantId: number): void {
-    axios.get(`http://localhost:9000/menus/` + {restaurantId})
-      .then(response => {
-        commit(GET_ALL_MENUS, response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-
+  searchMenus({commit}: ActionContext<MenuState, RootState>, restaurantId: any): void {
+    const temp = 'http://localhost:9000/menus/search?restaurantId=' + restaurantId;
+    if (restaurantId) {
+      axios.get(temp)
+        .then(response => {
+          commit(GET_ALL_MENUS, response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
   },
 
   getMenuDetails({commit}: ActionContext<MenuState, RootState>, id: number): void {
