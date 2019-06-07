@@ -38,7 +38,7 @@
     props: ['id'],
 
     computed: {
-      restaurant() {
+      restaurant() : any {
         return this.$store.getters.restaurantDetails;
       }
     },

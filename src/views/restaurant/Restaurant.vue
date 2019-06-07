@@ -18,11 +18,11 @@
     </b-card-group>
   </b-container>
 </template>
-<script>
+<script lang="ts">
  import { Component, Vue } from 'vue-property-decorator';
  import axios from 'axios';
 
- export default {
+ export default Vue.extend({
 
   data () {
    return {
@@ -41,7 +41,7 @@
     });
   }
 
- };
+ });
 </script>
 <style scoped>
   li {

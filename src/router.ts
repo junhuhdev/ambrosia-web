@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
+import HomePage from './views/home/HomePage.vue';
 import Restaurant from './views/restaurant/Restaurant.vue';
 import RestaurantDetail from './views/restaurant/RestaurantDetail.vue';
 import Customer from '@/views/customer/Customer.vue';
@@ -18,7 +19,7 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
-    {path: '/', name: 'home', component: Home},
+    {path: '/', name: 'home', component: HomePage},
     {path: '/login', name: 'login', component: Login},
     {path: '/register', name: 'register', component: Register},
     {path: '/restaurant', name: 'restaurant', component: Restaurant},
