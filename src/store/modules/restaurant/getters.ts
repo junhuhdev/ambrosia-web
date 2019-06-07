@@ -5,6 +5,10 @@ import { RootState } from '@/store/store';
 
 export const getters: GetterTree<RestaurantState, RootState> = {
 
+  restaurants: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {
+    return state.restaurants;
+  },
+
   restaurantDetails: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {
     return state.restaurantDetail;
   },

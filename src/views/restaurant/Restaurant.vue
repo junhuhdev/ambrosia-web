@@ -19,29 +19,22 @@
   </b-container>
 </template>
 <script lang="ts">
- import { Component, Vue } from 'vue-property-decorator';
- import axios from 'axios';
+  import { Component, Vue } from 'vue-property-decorator';
+  import axios from 'axios';
 
- export default Vue.extend({
+  export default Vue.extend({
 
-  data () {
-   return {
-    restaurants: [],
-    errors: []
-   };
-  },
+    computed: {
+      restaurants(): any {
+        return this.$store.getters.restaurants;
+      }
+    },
 
-  created () {
-   axios.get('http://localhost:9000/restaurants')
-    .then(response => {
-     this.restaurants = response.data;
-    })
-    .catch(e => {
-     this.errors.push(e);
-    });
-  }
+    created() {
+      this.$store.dispatch('getAllRestaurants');
+    }
 
- });
+  });
 </script>
 <style scoped>
   li {
