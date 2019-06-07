@@ -24,7 +24,6 @@
       return {
         meal: mealInitialState(),
         selectedRestaurant: '',
-        menuOptions: []
       };
     },
 
@@ -32,6 +31,10 @@
       restaurantsOption(): any {
         return this.$store.getters.restaurantsOption;
       },
+
+      menuOptions(): any {
+        return this.$store.getters.menuOptions;
+      }
 
     },
 
@@ -59,7 +62,6 @@
       getMenuById(restaurantId: string) {
         if (restaurantId !== '') {
           this.$store.dispatch('searchMenus', this.selectedRestaurant);
-          this.menuOptions = this.$store.getters.menuOptions;
         }
       }
     }
