@@ -11,6 +11,10 @@ export const getters: GetterTree<MenuState, RootState> = {
 
   menuDetails: (state: MenuState, getters: any, rootState: RootState, rootGetters: any) => {
     return state.menuDetail;
+  },
+
+  menuCategories: (state: MenuState, getters: any, rootState: RootState, rootGetters: any) => {
+    return state.categories;
   }
 
 };
