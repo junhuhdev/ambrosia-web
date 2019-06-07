@@ -9,17 +9,17 @@ export const getters: GetterTree<RestaurantState, RootState> = {
     return state.restaurants;
   },
 
+  restaurantDetails: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {
+    return state.restaurantDetail;
+  },
+
   restaurantsOption: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {
     return state.restaurants.map(restaurant => {
       return {
         value: restaurant.id,
         text: restaurant.name
-      }
-    })
-  },
-
-  restaurantDetails: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {
-    return state.restaurantDetail;
+      };
+    });
   },
 
 };

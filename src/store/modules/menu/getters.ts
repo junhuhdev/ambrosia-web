@@ -13,6 +13,15 @@ export const getters: GetterTree<MenuState, RootState> = {
     return state.menuDetail;
   },
 
+  menuOptions: (state: MenuState, getters: any, rootState: RootState, rootGetters: any) => {
+    return state.menus.map(menu => {
+      return {
+        value: menu.id,
+        text: menu.category
+      };
+    });
+  },
+
   menuCategories: (state: MenuState, getters: any, rootState: RootState, rootGetters: any) => {
     return state.categories;
   }

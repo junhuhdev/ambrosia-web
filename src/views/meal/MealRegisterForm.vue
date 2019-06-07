@@ -6,7 +6,7 @@
         <b-form-select v-model="selectedRestaurant" :options="restaurantsOption"></b-form-select>
       </b-form-group>
       <b-form-group v-show="selectedRestaurant !== ''" label="Select Restaurant Menu">
-        <b-form-select></b-form-select>
+        <b-form-select v-model="meal.menuId" :options="getMenuById"></b-form-select>
       </b-form-group>
       <b-form-group>
         <b-button type="submit" variant="primary">Create</b-button>
@@ -49,6 +49,14 @@
 
       onReset(e: Event) {
         e.preventDefault();
+      },
+
+      getMenuById(e: Event) {
+        e.preventDefault;
+        if (this.selectedRestaurant !== '') {
+          this.$store.dispatch('searchMenus', this.selectedRestaurant);
+          return this.$store.getters.menus;
+        }
       }
     }
 

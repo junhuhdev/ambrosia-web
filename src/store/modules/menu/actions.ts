@@ -3,7 +3,12 @@ import { MenuState } from '@/store/modules/menu/state';
 import { RootState } from '@/store/store';
 import { Menu } from '@/model/menu';
 import axios from 'axios';
-import { CREATE_MENU_DETAILS, GET_ALL_MENU_CATEGORIES } from '@/store/modules/menu/types';
+import {
+  CREATE_MENU_DETAILS,
+  GET_ALL_MENU_CATEGORIES,
+  GET_ALL_MENUS,
+  GET_MENU_DETAILS
+} from '@/store/modules/menu/types';
 
 
 export const actions: ActionTree<MenuState, RootState> = {
@@ -12,8 +17,25 @@ export const actions: ActionTree<MenuState, RootState> = {
 
   },
 
-  getMenuDetails({commit}: ActionContext<MenuState, RootState>, id: number): void {
+  searchMenus({commit}: ActionContext<MenuState, RootState>, restaurantId: number): void {
+    axios.get(`http://localhost:9000/menus/` + {restaurantId})
+      .then(response => {
+        commit(GET_ALL_MENUS, response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
 
+  },
+
+  getMenuDetails({commit}: ActionContext<MenuState, RootState>, id: number): void {
+    axios.get(`http://localhost:9000/menus/` + {id})
+      .then(response => {
+        commit(GET_MENU_DETAILS, response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
   },
 
   getAllMenuCategories({commit}: ActionContext<MenuState, RootState>): void {
