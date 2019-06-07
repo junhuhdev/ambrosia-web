@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <h1>Register menu</h1>
+    <h1>Create Menu</h1>
     <b-form @submit="onSubmit" @reset="onReset">
       <b-form-group label="Select Restaurant">
         <b-form-select v-model="menu.restaurantId" :options="restaurantsOption"></b-form-select>

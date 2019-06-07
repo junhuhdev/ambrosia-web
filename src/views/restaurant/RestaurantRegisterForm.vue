@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <h1>Register restaurant</h1>
+    <h1>Create Restaurant</h1>
     <b-form @submit="onSubmit" @reset="onReset">
       <b-form-group label="Name">
         <b-form-input v-model="restaurant.name" required/>

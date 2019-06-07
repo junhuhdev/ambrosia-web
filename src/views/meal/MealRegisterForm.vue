@@ -1,11 +1,11 @@
 <template>
   <b-container>
-    <h1>Register meal</h1>
+    <h1>Create Meal</h1>
     <b-form @submit="onSubmit" @reset="onReset">
       <b-form-group label="Select Restaurant">
-        <b-form-select v-model="menu.restaurantId" :options="restaurantsOption"></b-form-select>
+        <b-form-select v-model="selectedRestaurant" :options="restaurantsOption"></b-form-select>
       </b-form-group>
-      <b-form-group label="Select Restaurant Menu">
+      <b-form-group v-show="selectedRestaurant !== ''" label="Select Restaurant Menu">
         <b-form-select></b-form-select>
       </b-form-group>
       <b-form-group>
@@ -22,14 +22,24 @@
 
     data() {
       return {
-        meal: mealInitialState()
+        meal: mealInitialState(),
+        selectedRestaurant: ''
       };
     },
 
-    computed: {},
+    computed: {
+      restaurantsOption(): any {
+        return this.$store.getters.restaurantsOption;
+      },
+
+      menusOption(): any {
+
+      }
+
+    },
 
     created() {
-
+      this.$store.dispatch('getAllRestaurants');
     },
 
     methods: {
