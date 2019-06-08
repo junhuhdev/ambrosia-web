@@ -15,8 +15,12 @@
         <b-form-textarea placeholder="Meal summary..." rows="5" v-model="meal.description"/>
       </b-form-group>
       <b-form-group label="Amount" class="mb-2 mr-sm-2 mb-sm-0">
-        <b-form-input v-model="meal.amount"/>
-        <b-form-select v-model="meal.currency" :options="currencyOptions"/>
+        <b-form-row>
+          <b-col cols="4">
+            <b-form-input v-model="meal.amount"/>
+            <b-form-select v-model="meal.currency" :options="currencyOptions"/>
+          </b-col>
+        </b-form-row>
       </b-form-group>
       <b-form-group label="Types">
         <b-form-select v-model="meal.types" :options="typeOptions" multiple/>
