@@ -5,6 +5,8 @@ export interface Meal {
   description: string
   amount: number
   amountCy: string
+  types: string[]
+  preferences: string[]
   quantity: number
 }
 
@@ -16,6 +18,8 @@ export const mealInitialState = (): Meal => {
     description: '',
     amount: 0,
     amountCy: '',
+    types: [],
+    preferences: [],
     quantity: 0
   };
 };

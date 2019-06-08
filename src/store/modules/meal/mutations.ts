@@ -1,6 +1,6 @@
 import { MutationTree } from 'vuex';
 import { MealState } from '@/store/modules/meal/state';
-import { CREATE_MEAL_DETAILS, GET_ALL_MEALS, GET_MEAL_DETAILS } from '@/store/modules/meal/types';
+import { CREATE_MEAL_DETAILS, GET_ALL_MEALS, GET_MEAL_DETAILS, GET_MEAL_METADATA } from '@/store/modules/meal/types';
 import { Meal } from '@/model/meal';
 
 
@@ -16,6 +16,10 @@ export const mutations: MutationTree<MealState> = {
 
   [CREATE_MEAL_DETAILS]: (state: MealState, payload: Meal) => {
 
+  },
+
+  [GET_MEAL_METADATA]: (state: MealState, payload: any) => {
+    state.metadata = payload;
   }
 
 };
