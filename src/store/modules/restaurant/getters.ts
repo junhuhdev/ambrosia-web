@@ -13,14 +13,23 @@ export const getters: GetterTree<RestaurantState, RootState> = {
     return state.restaurantDetail;
   },
 
-  restaurantDetailsMenus: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {
-    return state.restaurantDetail.menus;
-  },
-
   restaurantDetailsMenuMeals: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {
-    return state.restaurantDetail.menus.map(menu => {
-      return menu.meals;
-    })
+    if (!state.restaurantDetail.menus) {
+      return [];
+    }
+    const meals: any = [];
+    state.restaurantDetail.menus.map(menu => {
+      menu.meals.map(meal => {
+        meals.push({
+          name: meal.name,
+          description: meal.description,
+          amount: meal.amount,
+          amountCy: meal.amountCy,
+          menu: menu.category
+        });
+      });
+    });
+    return meals;
   },
 
   restaurantsOption: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {

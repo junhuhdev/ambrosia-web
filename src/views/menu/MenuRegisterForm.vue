@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container >
     <b-row>
       <b-col>
         <h1>Create Menu</h1>
@@ -22,6 +22,10 @@
         </b-form>
       </b-col>
       <b-col>
+        <div v-if="restaurantMenuMeals.length > 0">
+          <b-table :items="restaurantMenuMeals" :fields="fields">
+          </b-table>
+        </div>
       </b-col>
     </b-row>
   </b-container>
@@ -35,15 +39,12 @@
     data() {
       return {
         menu: menuInitialState(),
-        selectedRestaurant: ''
+        selectedRestaurant: '',
+        fields: ['menu', 'name', 'description', 'amount', 'amountCy']
       };
     },
 
     computed: {
-      restaurantMenus(): any {
-        return this.$store.getters.restaurantDetailsMenus;
-      },
-
       restaurantMenuMeals(): any {
         return this.$store.getters.restaurantDetailsMenuMeals;
       },
