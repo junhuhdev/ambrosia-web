@@ -59,7 +59,6 @@
           formData: formData
         };
         this.$store.dispatch('uploadImageRestaurant', payload);
-
       }
     }
 
