@@ -13,6 +13,7 @@ export interface Restaurant {
   minimumOrderAmount: Money
   shipping: Shipping
   address: Address
+  imageUrl: string
   meals: Meal[]
 }
 
@@ -49,6 +50,7 @@ export const restaurantInitialState = (): Restaurant => {
       city: '',
       state: ''
     },
+    imageUrl: '',
     meals: []
   };
 };

@@ -4,7 +4,7 @@ import { RootState } from '@/store/store';
 import {
   CREATE_RESTAURANT_DETAILS,
   GET_ALL_RESTAURANTS,
-  GET_RESTAURANT_DETAILS
+  GET_RESTAURANT_DETAILS, UPLOAD_IMAGE_RESTAURANT
 } from '@/store/modules/restaurant/types';
 import axios from 'axios';
 import { Restaurant } from '@/model/restaurant';
@@ -36,6 +36,16 @@ export const actions: ActionTree<RestaurantState, RootState> = {
     axios.post(`http://localhost:9000/restaurants`, payload)
       .then(response => {
         commit(CREATE_RESTAURANT_DETAILS, response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  },
+
+  uploadImageRestaurant({commit, dispatch}: ActionContext<RestaurantState, RootState>, payload: any): void {
+    axios.post(`http://localhost:9000/images/restaurant/upload/${payload.id}`, payload.formData)
+      .then(response => {
+        commit(UPLOAD_IMAGE_RESTAURANT, response.data);
       })
       .catch(e => {
         console.log(e);
