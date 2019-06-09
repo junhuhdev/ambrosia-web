@@ -2,32 +2,54 @@
   <b-container>
     <h1>Create Meal</h1>
     <b-form @submit="onSubmit" @reset="onReset">
-      <b-form-group label="Select Restaurant">
-        <b-form-select v-model="selectedRestaurant" :options="restaurantsOption"></b-form-select>
-      </b-form-group>
-      <b-form-group v-if="selectedRestaurant !== ''" label="Select Restaurant Menu">
-        <b-form-select v-model="meal.menuId" :options="menuOptions"></b-form-select>
-      </b-form-group>
-      <b-form-group label="Name">
-        <b-form-input/>
-      </b-form-group>
-      <b-form-group label="Description">
-        <b-form-textarea placeholder="Meal summary..." rows="5" v-model="meal.description"/>
-      </b-form-group>
-      <b-form-group label="Amount" class="mb-2 mr-sm-2 mb-sm-0">
-        <b-form-row>
-          <b-col cols="4">
+      <b-row>
+        <b-col>
+          <b-form-group label="Select Restaurant">
+            <b-form-select v-model="selectedRestaurant" :options="restaurantsOption"></b-form-select>
+          </b-form-group>
+        </b-col>
+        <b-col>
+          <b-form-group v-if="selectedRestaurant !== ''" label="Select Restaurant Menu">
+            <b-form-select v-model="meal.menuId" :options="menuOptions"></b-form-select>
+          </b-form-group>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <b-form-group label="Name">
+            <b-form-input/>
+          </b-form-group>
+        </b-col>
+        <b-col>
+          <b-form-group label="Description">
+            <b-form-textarea placeholder="Meal summary..." rows="5" v-model="meal.description"/>
+          </b-form-group>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <b-form-group label="Amount">
             <b-form-input v-model="meal.amount"/>
+          </b-form-group>
+        </b-col>
+        <b-col>
+          <b-form-group label="Currency">
             <b-form-select v-model="meal.currency" :options="currencyOptions"/>
-          </b-col>
-        </b-form-row>
-      </b-form-group>
-      <b-form-group label="Types">
-        <b-form-select v-model="meal.types" :options="typeOptions" multiple/>
-      </b-form-group>
-      <b-form-group label="Preferences">
-        <b-form-select v-model="meal.preferences" :options="preferenceOptions" multiple/>
-      </b-form-group>
+          </b-form-group>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <b-form-group label="Types">
+            <b-form-select v-model="meal.types" :options="typeOptions" multiple/>
+          </b-form-group>
+        </b-col>
+        <b-col>
+          <b-form-group label="Preferences">
+            <b-form-select v-model="meal.preferences" :options="preferenceOptions" multiple/>
+          </b-form-group>
+        </b-col>
+      </b-row>
       <br/>
       <b-form-group>
         <b-button type="submit" variant="primary">Create</b-button>
