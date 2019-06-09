@@ -4,7 +4,7 @@ import { RootState } from '@/store/store';
 import {
   CREATE_RESTAURANT_DETAILS,
   GET_ALL_RESTAURANTS,
-  GET_RESTAURANT_DETAILS, UPLOAD_IMAGE_RESTAURANT
+  GET_RESTAURANT_DETAILS, UPDATE_RESTAURANT_DETAILS, UPLOAD_IMAGE_RESTAURANT
 } from '@/store/modules/restaurant/types';
 import axios from 'axios';
 import { Restaurant } from '@/model/restaurant';
@@ -31,6 +31,12 @@ export const actions: ActionTree<RestaurantState, RootState> = {
   async createRestaurantDetails({commit}: ActionContext<RestaurantState, RootState>, payload: Restaurant): Promise<any> {
     const response = await axios.post(`http://localhost:9000/restaurants`, payload);
     commit(CREATE_RESTAURANT_DETAILS, response.data);
+    return response.data;
+  },
+
+  async updateRestaurantDetails({commit}: ActionContext<RestaurantState, RootState>, payload: Restaurant): Promise<any> {
+    const response = await axios.put(`http://localhost:9000/restaurants/${payload.id}`, payload);
+    commit(UPDATE_RESTAURANT_DETAILS, response.data);
     return response.data;
   },
 

@@ -3,7 +3,7 @@ import { RestaurantState } from '@/store/modules/restaurant/state';
 import {
   CREATE_RESTAURANT_DETAILS,
   GET_ALL_RESTAURANTS,
-  GET_RESTAURANT_DETAILS, UPLOAD_IMAGE_RESTAURANT
+  GET_RESTAURANT_DETAILS, UPDATE_RESTAURANT_DETAILS, UPLOAD_IMAGE_RESTAURANT
 } from '@/store/modules/restaurant/types';
 import { Restaurant } from '@/model/restaurant';
 
@@ -20,6 +20,10 @@ export const mutations: MutationTree<RestaurantState> = {
 
   [CREATE_RESTAURANT_DETAILS]: (state: RestaurantState, payload: Restaurant) => {
 
+  },
+
+  [UPDATE_RESTAURANT_DETAILS]: (state: RestaurantState, payload: Restaurant) => {
+    state.restaurantDetail = payload;
   },
 
   [UPLOAD_IMAGE_RESTAURANT]: (state: RestaurantState, payload: Restaurant) => {
