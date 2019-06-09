@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HomePage from './views/home/HomePage.vue';
+import HomePage from './views/main/HomePage.vue';
 import Restaurant from './views/restaurant/Restaurant.vue';
 import RestaurantDetail from './views/restaurant/RestaurantDetail.vue';
 import Customer from '@/views/customer/Customer.vue';
