@@ -45,8 +45,8 @@
           </b-form-group>
         </b-col>
       </b-row>
-      <b-card bg-variant="light" v-if="restaurant.address">
-        <b-form-group label-cols-lg="3" label="Shipping Address" label-size="lg" label-class="font-weight-bold pt-0" class="mb-0">
+      <b-card v-if="restaurant.address">
+        <b-form-group label="Shipping Address">
           <b-form-group label-cols-sm="3" label="Street:" label-align-sm="right" label-for="nested-street">
             <b-form-input v-model="restaurant.address.street" id="nested-street"></b-form-input>
           </b-form-group>
