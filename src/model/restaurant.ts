@@ -32,7 +32,7 @@ export const restaurantInitialState = (): Restaurant => {
     status: '',
     recipientLimit: {
       from: 0,
-      to: 100
+      to: 0
     },
     minimumOrderAmount: {
       amount: 0,

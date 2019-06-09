@@ -41,7 +41,7 @@
         </b-col>
         <b-col>
           <b-form-group label="Minimum Order Amount Currency">
-            <b-form-select v-model="restaurant.minimumOrderAmount.currency" :options="currency"/>
+            <b-form-select v-model="restaurant.minimumOrderAmount.currency" :options="currencyOptions"/>
           </b-form-group>
         </b-col>
       </b-row>
@@ -75,6 +75,7 @@
   import Vue from 'vue';
   import router from '@/router';
   import { restaurantInitialState, restaurantStatusOptions } from '@/model/restaurant';
+  import { currencyOptions } from '@/model/money';
 
   export default Vue.extend({
     name: 'RestaurantEditPage',
@@ -82,7 +83,8 @@
     data() {
       return {
         restaurant: restaurantInitialState(),
-        statusOptions: restaurantStatusOptions()
+        statusOptions: restaurantStatusOptions(),
+        currencyOptions: currencyOptions()
       };
     },
 
@@ -95,7 +97,8 @@
     },
 
     async mounted() {
-      this.restaurant = await this.$store.dispatch('getRestaurantDetails', this.id);
+      const response = await this.$store.dispatch('getRestaurantDetails', this.id);
+      this.restaurant = Object.assign({}, this.restaurant, response);
     },
 
     methods: {
