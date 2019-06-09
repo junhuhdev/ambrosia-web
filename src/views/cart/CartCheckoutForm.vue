@@ -1,9 +1,99 @@
 <template>
   <div>
     <b-form @submit="onSubmit" @reset="onReset">
-      <b-form-group label="Datum & Tid">
-        <b-form-input></b-form-input>
-      </b-form-group>
+      <b-card bg-variant="light">
+        <b-form-group label="Leverans">
+          <b-row>
+            <b-col cols="2">
+              <b-form-group label="Datum & Tid">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <b-form-group label="Gatuaddress">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col cols="3">
+              <b-form-group label="Postnummer">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col cols="3">
+              <b-form-group label="Ort">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <b-form-group label="Fakturaanmärkning">
+                <b-form-textarea placeholder="Faktura beskrivning..." rows="5"/>
+              </b-form-group>
+            </b-col>
+          </b-row>
+        </b-form-group>
+      </b-card>
+      <b-card bg-variant="light" style="margin-top: 60px">
+        <b-form-group label="Kontaktperson">
+          <b-row>
+            <b-col>
+              <b-form-group label="Namn">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col>
+              <b-form-group label="E-post">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col cols="6">
+              <b-form-group label="Telefon">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+          </b-row>
+        </b-form-group>
+      </b-card>
+      <b-card bg-variant="light" style="margin-top: 60px">
+        <b-form-group label="Fakturainformation">
+          <b-row>
+            <b-col>
+              <b-form-group label="Företagsnamn">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col>
+              <b-form-group label="Organisationsnummer">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <b-form-group label="Postaddress">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col cols="3">
+              <b-form-group label="Postnummer">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col cols="3">
+              <b-form-group label="Ort">
+                <b-form-input></b-form-input>
+              </b-form-group>
+            </b-col>
+          </b-row>
+        </b-form-group>
+      </b-card>
+      <b-row>
+      </b-row>
     </b-form>
   </div>
 </template>
@@ -13,9 +103,7 @@
   export default Vue.extend({
 
     data() {
-      return {
-
-      };
+      return {};
     },
 
     methods: {
