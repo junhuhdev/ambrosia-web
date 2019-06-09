@@ -66,7 +66,7 @@
       </b-card>
       <br/>
       <b-form-group>
-        <b-button type="submit" variant="primary">Create</b-button>
+        <b-button type="submit" variant="primary">Create Restaurant</b-button>
       </b-form-group>
     </b-form>
   </b-container>

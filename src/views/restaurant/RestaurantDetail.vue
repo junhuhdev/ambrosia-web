@@ -14,15 +14,19 @@
     <b-row v-for="menu of restaurant.menus" :key="menu.id">
       <h3>{{menu.category}}</h3>
       <b-col cols="4" v-for="meal of menu.meals" v-bind:key="meal.id">
-        <b-link class="custom-card" :to="{name: 'restaurant-detail', params: {id: meal.id}}">
-          <b-card :title="meal.name" img-src="https://picsum.photos/300/300/?image=41" img-alt="Image" img-top style="margin-top: 2rem;">
-            <b-card-text><b>Description:</b> {{meal.description}}</b-card-text>
-            <div slot="footer">
-              <small class="text-muted">Cost: {{meal.amount}} {{meal.amountCy}}</small>
-              <b-button @click="addToCart(meal)" variant="primary">Lägg till</b-button>
-            </div>
-          </b-card>
-        </b-link>
+        <b-card :title="meal.name" img-src="https://picsum.photos/300/300/?image=41" img-alt="Image" img-top style="margin-top: 2rem;">
+          <b-card-text><b>Beskrivning:</b> {{meal.description}}</b-card-text>
+          <div slot="footer">
+            <b-row>
+              <b-col cols="8">
+                <p>Pris: {{meal.amount}} {{meal.amountCy}}</p>
+              </b-col>
+              <b-col>
+                <b-button @click="addToCart(meal)" variant="primary">Lägg till</b-button>
+              </b-col>
+            </b-row>
+          </div>
+        </b-card>
       </b-col>
     </b-row>
   </b-container>
@@ -38,7 +42,7 @@
     props: ['id'],
 
     computed: {
-      restaurant() : any {
+      restaurant(): any {
         return this.$store.getters.restaurantDetails;
       }
     },

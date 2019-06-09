@@ -13,6 +13,16 @@ export const getters: GetterTree<RestaurantState, RootState> = {
     return state.restaurantDetail;
   },
 
+  restaurantDetailsMenus: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {
+    return state.restaurantDetail.menus;
+  },
+
+  restaurantDetailsMenuMeals: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {
+    return state.restaurantDetail.menus.map(menu => {
+      return menu.meals;
+    })
+  },
+
   restaurantsOption: (state: RestaurantState, getters: any, rootState: RootState, rootGetters: any) => {
     return state.restaurants.map(restaurant => {
       return {

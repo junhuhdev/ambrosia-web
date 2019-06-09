@@ -2,7 +2,7 @@ import { Money } from '@/model/money';
 import { Shipping } from '@/model/shipping';
 import { Address } from '@/model/address';
 import { RangeLimit } from '@/model/rangelimit';
-import { Meal } from '@/model/meal';
+import { Menu } from '@/model/menu';
 
 export interface Restaurant {
   id: number
@@ -14,7 +14,7 @@ export interface Restaurant {
   shipping: Shipping
   address: Address
   imageUrl: string
-  meals: Meal[]
+  menus: Menu[]
 }
 
 
@@ -51,6 +51,6 @@ export const restaurantInitialState = (): Restaurant => {
       state: ''
     },
     imageUrl: '',
-    meals: []
+    menus: []
   };
 };

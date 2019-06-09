@@ -52,7 +52,7 @@
       </b-row>
       <br/>
       <b-form-group>
-        <b-button type="submit" variant="primary">Create</b-button>
+        <b-button type="submit" variant="primary">Create Meal</b-button>
       </b-form-group>
     </b-form>
   </b-container>
