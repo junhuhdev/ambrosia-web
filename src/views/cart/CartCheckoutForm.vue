@@ -92,8 +92,20 @@
           </b-row>
         </b-form-group>
       </b-card>
-      <b-row>
-      </b-row>
+      <br/>
+      <b-form-checkbox
+          id="checkbox-1"
+          v-model="status"
+          name="checkbox-1"
+          value="accepted"
+          unchecked-value="not_accepted"
+      >
+        Jag har läst och godkänner Ambrosia almänna villkor
+      </b-form-checkbox>
+      <br/>
+      <b-form-group>
+        <b-button type="submit" variant="primary">Bekräfta köp</b-button>
+      </b-form-group>
     </b-form>
   </div>
 </template>
