@@ -74,6 +74,7 @@
 <script lang="ts">
   import Vue from 'vue';
   import { Restaurant, restaurantInitialState } from '@/model/restaurant';
+  import router from '@/router';
 
   export default Vue.extend({
 
@@ -93,9 +94,10 @@
     },
 
     methods: {
-      onSubmit(e: Event) {
+      async onSubmit(e: Event) {
         e.preventDefault();
-        this.$store.dispatch('createRestaurantDetails', this.restaurant);
+        const response = await this.$store.dispatch('createRestaurantDetails', this.restaurant);
+        router.push({name: 'restaurant-detail', params: {id: response.id}});
       },
 
       onReset(e: Event) {

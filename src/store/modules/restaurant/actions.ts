@@ -32,22 +32,16 @@ export const actions: ActionTree<RestaurantState, RootState> = {
       });
   },
 
-  createRestaurantDetails({commit}: ActionContext<RestaurantState, RootState>, payload: Restaurant): void {
-    axios.post(`http://localhost:9000/restaurants`, payload)
-      .then(response => {
-        commit(CREATE_RESTAURANT_DETAILS, response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  async createRestaurantDetails({commit}: ActionContext<RestaurantState, RootState>, payload: Restaurant): Promise<any> {
+    const response = await axios.post(`http://localhost:9000/restaurants`, payload);
+    commit(CREATE_RESTAURANT_DETAILS, response.data);
+    return response.data;
   },
 
   async uploadImageRestaurant({commit, dispatch}: ActionContext<RestaurantState, RootState>, payload: any): Promise<any> {
     const response = await axios.post(`http://localhost:9000/images/restaurant/upload/${payload.id}`, payload.formData);
     commit(UPLOAD_IMAGE_RESTAURANT, response.data);
-    // const restaurants = await axios.get('http://localhost:9000/restaurants');
-    // commit(GET_ALL_RESTAURANTS, restaurants.data);
-    return response;
+    return response.data;
   }
 
 };

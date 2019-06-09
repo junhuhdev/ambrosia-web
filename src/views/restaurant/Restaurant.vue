@@ -58,8 +58,7 @@
           id: restaurant.id,
           formData: formData
         };
-        const response = await this.$store.dispatch('uploadImageRestaurant', payload);
-        console.log('image UPADTED', response);
+        await this.$store.dispatch('uploadImageRestaurant', payload);
       }
     }
 
