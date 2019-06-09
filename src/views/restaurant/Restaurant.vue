@@ -50,15 +50,16 @@
 
     methods: {
 
-      upload(files: any, restaurant: Restaurant) {
+      async upload(files: any, restaurant: Restaurant) {
 
         const formData = new FormData();
-        formData.append('file', files[0], restaurant.name);
+        formData.append('file', files[0], files[0].name);
         const payload = {
           id: restaurant.id,
           formData: formData
         };
-        this.$store.dispatch('uploadImageRestaurant', payload);
+        const response = await this.$store.dispatch('uploadImageRestaurant', payload);
+        console.log('image UPADTED', response);
       }
     }
 

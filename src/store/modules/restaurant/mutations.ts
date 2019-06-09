@@ -23,11 +23,12 @@ export const mutations: MutationTree<RestaurantState> = {
   },
 
   [UPLOAD_IMAGE_RESTAURANT]: (state: RestaurantState, payload: Restaurant) => {
-    // state.restaurants.map(restaurant => {
-    //   if (restaurant.id === payload.id) {
-    //     return
-    //   }
-    // })
+    state.restaurants = state.restaurants.map(restaurant => {
+      if (restaurant.id === payload.id) {
+        return Object.assign({}, restaurant, payload);
+      }
+      return restaurant;
+    });
   }
 
 

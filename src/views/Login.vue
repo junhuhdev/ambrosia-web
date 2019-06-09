@@ -5,7 +5,7 @@
       <b-form-group>
         <b-form-input v-model="username" type="text" placeholder="Username" required/>
       </b-form-group>
-      <b-form-group :invalid-feedback="invalidFeedback">
+      <b-form-group>
         <b-form-input v-model="password" type="password" placeholder="Password" required/>
       </b-form-group>
       <div class="text-center">
