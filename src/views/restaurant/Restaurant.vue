@@ -11,6 +11,7 @@
             </b-link>
             <div slot="footer">
               <div v-if="isAdmin" class="image-upload">
+                <b-button variant="warning" @click="showEditPage(restaurant.id)">Edit</b-button>
                 <b-form-file v-model="image" @change="upload($event.target.files, restaurant)" class="mt-3" plain></b-form-file>
               </div>
               <small class="text-muted">Last updated 3 mins ago</small>
@@ -25,6 +26,7 @@
   import { Component, Vue } from 'vue-property-decorator';
   import axios from 'axios';
   import { Restaurant } from '@/model/restaurant';
+  import router from '@/router';
 
   export default Vue.extend({
 
@@ -51,7 +53,6 @@
     methods: {
 
       async upload(files: any, restaurant: Restaurant) {
-
         const formData = new FormData();
         formData.append('file', files[0], files[0].name);
         const payload = {
@@ -59,6 +60,10 @@
           formData: formData
         };
         await this.$store.dispatch('uploadImageRestaurant', payload);
+      },
+
+      showEditPage(restaurantId: string) {
+        router.push({name: 'restaurant-edit-page', params: {id: restaurantId}});
       }
     }
 

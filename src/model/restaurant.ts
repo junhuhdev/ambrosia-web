@@ -17,6 +17,12 @@ export interface Restaurant {
   menus: Menu[]
 }
 
+export const restaurantStatusOptions = (): any => {
+  return [
+    {value: 'ACTIVE', text: 'ACTIVE'},
+    {value: 'INACTIVE', text: 'INACTIVE'}
+  ];
+};
 
 export const restaurantInitialState = (): Restaurant => {
   return {

@@ -22,14 +22,10 @@ export const actions: ActionTree<RestaurantState, RootState> = {
       });
   },
 
-  getRestaurantDetails({commit}: ActionContext<RestaurantState, RootState>, id: number): void {
-    axios.get(`http://localhost:9000/restaurants/${id}`)
-      .then(response => {
-        commit(GET_RESTAURANT_DETAILS, response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  async getRestaurantDetails({commit}: ActionContext<RestaurantState, RootState>, id: number): Promise<any> {
+    const response = await axios.get(`http://localhost:9000/restaurants/${id}`);
+    commit(GET_RESTAURANT_DETAILS, response.data);
+    return response.data;
   },
 
   async createRestaurantDetails({commit}: ActionContext<RestaurantState, RootState>, payload: Restaurant): Promise<any> {

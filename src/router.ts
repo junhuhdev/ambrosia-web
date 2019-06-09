@@ -11,6 +11,7 @@ import Register from '@/views/Register.vue';
 import Meal from '@/views/meal/Meal.vue';
 import Order from '@/views/order/Order.vue';
 import RestaurantRegisterForm from '@/views/restaurant/RestaurantRegisterForm.vue';
+import RestaurantEditPage from '@/views/restaurant/RestaurantEditPage.vue';
 import MenuRegisterForm from '@/views/menu/MenuRegisterForm.vue';
 import MealRegisterForm from '@/views/meal/MealRegisterForm.vue';
 import CartCheckoutPage from '@/views/cart/CartCheckoutPage.vue';
@@ -33,6 +34,7 @@ export default new Router({
     {path: '/cart-checkout-page', name: 'cart-checkout-page', component: CartCheckoutPage},
     // Admin pages
     {path: '/restaurant-register-form', name: 'restaurant-register-form', component: RestaurantRegisterForm},
+    {path: '/restaurant-edit-page/:id', name: 'restaurant-edit-page', component: RestaurantEditPage, props: true},
     {path: '/menu-register-form', name: 'menu-register-form', component: MenuRegisterForm},
     {path: '/meal-register-form', name: 'meal-register-form', component: MealRegisterForm},
     {
