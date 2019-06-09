@@ -23,8 +23,10 @@
       </table>
     </div>
     <h4 class="cartSubTotal" v-show="showCart">{{ total }} SEK</h4>
-    <button class="clearCart" v-show="showCart && showCheckout" @click="clearCart()"> Clear Cart</button>
-    <button class="checkoutCart" v-show="showCart && showCheckout" @click="checkout()"> Checkout</button>
+    <button class="clearCart" v-show="showCart && showCheckout" @click="clearCart()">Clear Cart</button>
+    <b-link :to="{name: 'cart-checkout-page'}">
+      <button class="checkoutCart" v-show="showCart && showCheckout">Checkout</button>
+    </b-link>
   </div>
 </template>
 <script lang="ts">
@@ -83,7 +85,7 @@
     right: 0em;
     top: 4em;
     text-align: right;
-    background: rgba(0, 0, 0, 0.85);
+    background: lightslategrey;
     color: white;
     z-index: 1;
 

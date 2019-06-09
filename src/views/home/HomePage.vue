@@ -1,10 +1,11 @@
 <template>
   <b-container>
     <div class="search-bar">
-      <h1 style="margin-bottom: 30px">Vad är jag sugen på?</h1>
-      <vue-bootstrap-typeahead placeholder="Restaurang, meny, mat..." v-model="query" :data="['Canada', 'USA', 'Mexico']">
+      <h1>Catering levererad till ditt företag</h1>
+      <h3 style="margin-bottom: 30px">Vi har samlat dina bästa lokala cateringkök på en plats</h3>
+      <vue-bootstrap-typeahead placeholder="Restaurang, meny, mat..." v-model="query" :data="['McDonald', 'Burger King', 'Mexico']">
         <template slot="append">
-          <b-button @click="search" variant="primary">Sök</b-button>
+          <b-button @click="search" variant="primary">Hitta catering nära dig</b-button>
         </template>
       </vue-bootstrap-typeahead>
     </div>

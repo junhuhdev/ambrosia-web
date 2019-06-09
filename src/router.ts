@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
 import HomePage from './views/home/HomePage.vue';
 import Restaurant from './views/restaurant/Restaurant.vue';
 import RestaurantDetail from './views/restaurant/RestaurantDetail.vue';
@@ -14,6 +13,7 @@ import Order from '@/views/order/Order.vue';
 import RestaurantRegisterForm from '@/views/restaurant/RestaurantRegisterForm.vue';
 import MenuRegisterForm from '@/views/menu/MenuRegisterForm.vue';
 import MealRegisterForm from '@/views/meal/MealRegisterForm.vue';
+import CartCheckoutPage from '@/views/cart/CartCheckoutPage.vue';
 
 Vue.use(Router);
 
@@ -29,6 +29,8 @@ export default new Router({
     {path: '/admin', name: 'admin', component: AdminPage},
     {path: '/customer', name: 'customer', component: Customer},
     {path: '/supplier', name: 'supplier', component: Supplier},
+    // Cart pages
+    {path: '/cart-checkout-page', name: 'cart-checkout-page', component: CartCheckoutPage},
     // Admin pages
     {path: '/restaurant-register-form', name: 'restaurant-register-form', component: RestaurantRegisterForm},
     {path: '/menu-register-form', name: 'menu-register-form', component: MenuRegisterForm},
