@@ -64,6 +64,10 @@
           </b-form-group>
         </b-form-group>
       </b-card>
+      <br/>
+      <b-form-group>
+        <b-button type="submit" variant="primary">Update Restaurant</b-button>
+      </b-form-group>
     </b-form>
   </b-container>
 </template>
