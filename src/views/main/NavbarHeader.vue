@@ -8,6 +8,8 @@
         <b-nav-item :to="{path: '/register'}">Register</b-nav-item>
         <b-nav-item :to="{path: '/restaurant'}">Restaurant</b-nav-item>
         <b-nav-item-dropdown text="Admin">
+          <b-dropdown-item :to="{path: '/restaurant-register-form'}">Customer</b-dropdown-item>
+          <b-dropdown-item :to="{path: '/restaurant-register-form'}">Order</b-dropdown-item>
           <b-dropdown-item :to="{path: '/restaurant-register-form'}">Create Restaurant</b-dropdown-item>
           <b-dropdown-item :to="{path: '/menu-register-form'}">Create Menu</b-dropdown-item>
           <b-dropdown-item :to="{path: '/meal-register-form'}">Create Meal</b-dropdown-item>

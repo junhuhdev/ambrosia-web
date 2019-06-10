@@ -75,7 +75,7 @@
           </b-row>
           <b-row>
             <b-col>
-              <b-form-group label="Postaddress">
+              <b-form-group label="Gatuaddress">
                 <b-form-input></b-form-input>
               </b-form-group>
             </b-col>
