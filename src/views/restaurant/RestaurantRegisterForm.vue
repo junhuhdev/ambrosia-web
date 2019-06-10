@@ -75,6 +75,7 @@
   import Vue from 'vue';
   import { Restaurant, restaurantInitialState, restaurantStatusOptions } from '@/model/restaurant';
   import router from '@/router';
+  import { currencyOptions } from '@/model/money';
 
   export default Vue.extend({
 
@@ -82,11 +83,7 @@
       return {
         restaurant: restaurantInitialState(),
         statusOptions: restaurantStatusOptions(),
-        currency: [
-          {value: 'SEK', text: 'SEK'},
-          {value: 'NOK', text: 'NOK'},
-          {value: 'EUR', text: 'EUR'}
-        ]
+        currency: currencyOptions()
       };
     },
 

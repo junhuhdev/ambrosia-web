@@ -23,6 +23,10 @@
               </b-col>
               <b-col>
                 <b-button @click="addToCart(meal)" variant="primary">Lägg till</b-button>
+                <div v-if="isAdmin" class="image-upload">
+                  <b-button variant="warning" @click="showEditPage(meal.id)">Edit</b-button>
+                  <b-form-file v-model="image" @change="upload($event.target.files, restaurant)" class="mt-3" plain></b-form-file>
+                </div>
               </b-col>
             </b-row>
           </div>
@@ -35,6 +39,8 @@
   import Vue from 'vue';
   import axios from 'axios';
   import Cart from '@/views/cart/Cart.vue';
+  import router from '@/router';
+  import { Meal } from '@/model/meal';
 
   export default Vue.extend({
     name: 'RestaurantDetail',
@@ -42,6 +48,10 @@
     props: ['id'],
 
     computed: {
+      isAdmin(): any {
+        return true;
+      },
+
       restaurant(): any {
         return this.$store.getters.restaurantDetails;
       }
@@ -54,7 +64,22 @@
     methods: {
       addToCart(meal: any) {
         this.$store.dispatch('addToCart', meal);
+      },
+
+      async upload(files: any, meal: Meal) {
+        const formData = new FormData();
+        formData.append('file', files[0], files[0].name);
+        const payload = {
+          id: meal.id,
+          formData: formData
+        };
+        await this.$store.dispatch('uploadImageRestaurant', payload);
+      },
+
+      showEditPage(mealId: string) {
+        router.push({name: 'meal-edit-page', params: {id: mealId}});
       }
+
     }
 
   });

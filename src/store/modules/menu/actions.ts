@@ -50,14 +50,10 @@ export const actions: ActionTree<MenuState, RootState> = {
       });
   },
 
-  createMenuDetails({commit}: ActionContext<MenuState, RootState>, payload: Menu): void {
-    axios.post(`http://localhost:9000/menus`, payload)
-      .then(response => {
-        commit(CREATE_MENU_DETAILS, response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  async createMenuDetails({commit}: ActionContext<MenuState, RootState>, payload: Menu): Promise<any> {
+    const response = await axios.post(`http://localhost:9000/menus`, payload);
+    commit(CREATE_MENU_DETAILS, response.data);
+    return response.data;
   }
 
 };

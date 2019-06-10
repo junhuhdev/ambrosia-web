@@ -116,8 +116,9 @@
     },
 
     methods: {
-      onSubmit(e: Event) {
+      async onSubmit(e: Event) {
         e.preventDefault();
+        const response = await this.$store.dispatch('createMealDetails', this.meal);
       },
 
       onReset(e: Event) {
