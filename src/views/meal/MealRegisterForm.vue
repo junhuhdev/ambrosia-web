@@ -41,12 +41,18 @@
       <b-row>
         <b-col>
           <b-form-group label="Types">
-            <b-form-select v-model="meal.types" :options="typeOptions" multiple/>
+            <multiselect v-model="meal.types"
+                         :multiple="true"
+                         :options="typeOptions">
+            </multiselect>
           </b-form-group>
         </b-col>
         <b-col>
           <b-form-group label="Preferences">
-            <b-form-select v-model="meal.preferences" :options="preferenceOptions" multiple/>
+            <multiselect v-model="meal.preferences"
+                         :multiple="true"
+                         :options="preferenceOptions">
+            </multiselect>
           </b-form-group>
         </b-col>
       </b-row>
@@ -61,8 +67,13 @@
   import Vue from 'vue';
   import { currencyOptions } from '@/model/money';
   import { mealInitialState } from '@/model/meal';
+  import Multiselect from 'vue-multiselect';
 
   export default Vue.extend({
+
+    components: {
+      Multiselect
+    },
 
     data() {
       return {

@@ -18,24 +18,22 @@ export const getters: GetterTree<MealState, RootState> = {
     if (!state.metadata || !state.metadata.types) {
       return [];
     }
-    return state.metadata.types.map((type: any) => {
-      return {
-        value: type,
-        text: type
-      };
+    const types: any = [];
+    state.metadata.types.map((type: any) => {
+      types.push(type);
     });
+    return types;
   },
 
   preferenceOptions: (state: MealState, getters: any, rootState: RootState, rootGetters: any) => {
     if (!state.metadata || !state.metadata.preferences) {
       return [];
     }
-    return state.metadata.preferences.map((preference: any) => {
-      return {
-        value: preference,
-        text: preference
-      };
+    const preferences: any = [];
+    state.metadata.preferences.map((preference: any) => {
+      preferences.push(preference);
     });
+    return preferences;
   }
 
 };
