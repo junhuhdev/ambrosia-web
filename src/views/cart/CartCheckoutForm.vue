@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-form @submit="onSubmit" @reset="onReset">
-      <b-card bg-variant="light">
+      <b-card>
         <b-form-group label="Leverans">
           <b-row>
             <b-col cols="2">
@@ -36,7 +36,7 @@
           </b-row>
         </b-form-group>
       </b-card>
-      <b-card bg-variant="light" style="margin-top: 60px">
+      <b-card style="margin-top: 60px">
         <b-form-group label="Kontaktperson">
           <b-row>
             <b-col>
@@ -59,7 +59,7 @@
           </b-row>
         </b-form-group>
       </b-card>
-      <b-card bg-variant="light" style="margin-top: 60px">
+      <b-card style="margin-top: 60px">
         <b-form-group label="Fakturainformation">
           <b-row>
             <b-col>
