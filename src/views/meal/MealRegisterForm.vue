@@ -34,7 +34,7 @@
         </b-col>
         <b-col>
           <b-form-group label="Currency">
-            <b-form-select v-model="meal.currency" :options="currencyOptions"/>
+            <b-form-select v-model="meal.amountCy" :options="currencyOptions"/>
           </b-form-group>
         </b-col>
       </b-row>

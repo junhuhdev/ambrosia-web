@@ -12,14 +12,10 @@ import { Restaurant } from '@/model/restaurant';
 
 export const actions: ActionTree<RestaurantState, RootState> = {
 
-  getAllRestaurants({commit}: ActionContext<RestaurantState, RootState>): void {
-    axios.get('http://localhost:9000/restaurants')
-      .then(response => {
-        commit(GET_ALL_RESTAURANTS, response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  async getAllRestaurants({commit}: ActionContext<RestaurantState, RootState>): Promise<any> {
+    const response = await axios.get('http://localhost:9000/restaurants');
+    commit(GET_ALL_RESTAURANTS, response.data);
+    return response.data;
   },
 
   async getRestaurantDetails({commit}: ActionContext<RestaurantState, RootState>, id: number): Promise<any> {

@@ -14,6 +14,7 @@ import RestaurantRegisterForm from '@/views/restaurant/RestaurantRegisterForm.vu
 import RestaurantEditPage from '@/views/restaurant/RestaurantEditPage.vue';
 import MenuRegisterForm from '@/views/menu/MenuRegisterForm.vue';
 import MealRegisterForm from '@/views/meal/MealRegisterForm.vue';
+import MealEditPage from '@/views/meal/MealEditPage.vue';
 import CartCheckoutPage from '@/views/cart/CartCheckoutPage.vue';
 
 Vue.use(Router);
@@ -37,6 +38,7 @@ export default new Router({
     {path: '/restaurant-edit-page/:id', name: 'restaurant-edit-page', component: RestaurantEditPage, props: true},
     {path: '/menu-register-form', name: 'menu-register-form', component: MenuRegisterForm},
     {path: '/meal-register-form', name: 'meal-register-form', component: MealRegisterForm},
+    {path: '/meal-edit-page/:id', name: 'meal-edit-page', component: MealEditPage, props: true},
     {
       path: '/about', name: 'about',
       // route level code-splitting

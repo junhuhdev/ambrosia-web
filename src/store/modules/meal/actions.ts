@@ -3,37 +3,31 @@ import { MealState } from '@/store/modules/meal/state';
 import { RootState } from '@/store/store';
 import axios from 'axios';
 import { Meal } from '@/model/meal';
-import { CREATE_MEAL_DETAILS, GET_MEAL_METADATA } from '@/store/modules/meal/types';
+import { CREATE_MEAL_DETAILS, GET_MEAL_DETAILS, GET_MEAL_METADATA } from '@/store/modules/meal/types';
 
 
 export const actions: ActionTree<MealState, RootState> = {
 
-  getAllMeals({commit}: ActionContext<MealState, RootState>): void {
+  async getAllMeals({commit}: ActionContext<MealState, RootState>): Promise<any> {
 
   },
 
-  getMealDetails({commit}: ActionContext<MealState, RootState>): void {
-
+  async getMealDetails({commit}: ActionContext<MealState, RootState>, mealId: number): Promise<any> {
+    const response = await axios.get(`http://localhost:9000/meals/${mealId}`);
+    commit(GET_MEAL_DETAILS, response.data);
+    return response.data;
   },
 
-  createMealDetails({commit}: ActionContext<MealState, RootState>, payload: Meal): void {
-    axios.post(`http://localhost:9000/meals`, payload)
-      .then(response => {
-        commit(CREATE_MEAL_DETAILS, response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  async createMealDetails({commit}: ActionContext<MealState, RootState>, payload: Meal): Promise<any> {
+    const response = await axios.post(`http://localhost:9000/meals`, payload);
+    commit(CREATE_MEAL_DETAILS, response.data);
+    return response.data;
   },
 
-  getMealMetadata({commit}: ActionContext<MealState, RootState>): void {
-    axios.get(`http://localhost:9000/meals/metadata`)
-      .then(response => {
-        commit(GET_MEAL_METADATA, response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  async getMealMetadata({commit}: ActionContext<MealState, RootState>): Promise<any> {
+    const response = await axios.get(`http://localhost:9000/meals/metadata`);
+    commit(GET_MEAL_METADATA, response.data);
+    return response.data;
   }
 
 };
