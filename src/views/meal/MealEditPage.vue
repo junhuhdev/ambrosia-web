@@ -4,20 +4,8 @@
     <b-form @submit="onSubmit" @reset="onReset">
       <b-row>
         <b-col>
-          <b-form-group label="Select Restaurant">
-            <b-form-select v-model="selectedRestaurant" :options="restaurantsOption"></b-form-select>
-          </b-form-group>
-        </b-col>
-        <b-col>
-          <b-form-group v-if="selectedRestaurant !== ''" label="Select Restaurant Menu">
-            <b-form-select v-model="meal.menuId" :options="menuOptions"></b-form-select>
-          </b-form-group>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col>
           <b-form-group label="Name">
-            <b-form-input/>
+            <b-form-input v-model="meal.name" />
           </b-form-group>
         </b-col>
         <b-col>
@@ -113,7 +101,7 @@
     },
 
     async mounted() {
-      console.log('MOUNTED ' + this.id)
+      console.log('MOUNTED ' + this.id);
       const response = await this.$store.dispatch('getMealDetails', this.id);
       this.meal = Object.assign({}, this.meal, response);
     },
