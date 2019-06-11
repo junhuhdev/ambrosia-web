@@ -4,7 +4,8 @@
       <b-col>
         <vue-bootstrap-typeahead placeholder="Sök restauranger eller maträtter"
                                  v-model="searchQuery.query"
-                                 :data="['McDonald', 'Burger King', 'Mexico']">
+                                 :minMatchingChars="3"
+                                 :data="searchResult">
           <template slot="append">
             <b-button @click="search" variant="primary">Hitta catering nära dig</b-button>
           </template>
@@ -48,6 +49,7 @@
   import VueBootstrapTypeahead from 'vue-bootstrap-typeahead';
   import Multiselect from 'vue-multiselect';
   import axios from 'axios';
+  import * as _ from 'underscore';
 
   export default Vue.extend({
     components: {
@@ -101,7 +103,14 @@
         });
         this.searchResult = names;
       }
-    }
+    },
+
+    watch: {
+      searchResult(newVal, oldVal) {
+        const debouncedAjaxCall = _.debounce(() => this.search(newVal), 1000, true);
+        debouncedAjaxCall();
+      }
+    },
 
 
   });
