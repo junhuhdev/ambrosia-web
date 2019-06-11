@@ -1,10 +1,16 @@
 <template>
   <div>
-    <vue-bootstrap-typeahead placeholder="Sök restauranger eller maträtter" v-model="query" :data="['McDonald', 'Burger King', 'Mexico']">
+    <vue-bootstrap-typeahead placeholder="Sök restauranger eller maträtter" v-model="searchQuery.query" :data="['McDonald', 'Burger King', 'Mexico']">
       <template slot="append">
         <b-button @click="search" variant="primary">Hitta catering nära dig</b-button>
       </template>
     </vue-bootstrap-typeahead>
+    <b-col cols="4">
+      <multiselect v-model="searchQuery.preferences"
+                   :multiple="true"
+                   :options="preferenceOptions">
+      </multiselect>
+    </b-col>
   </div>
 </template>
 <script lang="ts">
@@ -20,7 +26,12 @@
 
     data() {
       return {
-        query: ''
+        searchQuery: {
+          query: '',
+          categories: [],
+          preferences: [],
+          types: []
+        }
       };
     },
 
@@ -38,7 +49,6 @@
       }
 
     },
-
 
     mounted() {
       this.$store.dispatch('getMealMetadata');

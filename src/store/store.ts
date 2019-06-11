@@ -4,6 +4,7 @@ import * as cart from '@/store/modules/cart';
 import * as restaurant from '@/store/modules/restaurant';
 import * as menu from '@/store/modules/menu';
 import * as meal from '@/store/modules/meal';
+import * as search from '@/store/modules/search';
 
 Vue.use(Vuex);
 
@@ -11,7 +12,8 @@ export interface RootState {
   cart: cart.CartState,
   restaurant: restaurant.RestaurantState,
   menu: menu.MenuState,
-  meal: meal.MealState
+  meal: meal.MealState,
+  search: search.SearchState
 }
 
 export default new Vuex.Store<RootState>({
@@ -19,7 +21,8 @@ export default new Vuex.Store<RootState>({
     cart: cart.store,
     restaurant: restaurant.store,
     menu: menu.store,
-    meal: meal.store
+    meal: meal.store,
+    search: search.store
   },
   strict: true
 });
