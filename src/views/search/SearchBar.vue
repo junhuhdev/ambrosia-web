@@ -2,7 +2,9 @@
   <div>
     <b-row>
       <b-col>
-        <vue-bootstrap-typeahead placeholder="Sök restauranger eller maträtter" v-model="searchQuery.query" :data="['McDonald', 'Burger King', 'Mexico']">
+        <vue-bootstrap-typeahead placeholder="Sök restauranger eller maträtter"
+                                 v-model="searchQuery.query"
+                                 :data="['McDonald', 'Burger King', 'Mexico']">
           <template slot="append">
             <b-button @click="search" variant="primary">Hitta catering nära dig</b-button>
           </template>
@@ -45,6 +47,7 @@
   import Vue from 'vue';
   import VueBootstrapTypeahead from 'vue-bootstrap-typeahead';
   import Multiselect from 'vue-multiselect';
+  import axios from 'axios';
 
   export default Vue.extend({
     components: {
@@ -61,6 +64,7 @@
           types: [],
           cities: []
         },
+        searchResult: [],
         cityOptions: ['Stockholm', 'Göteborg', 'Örebro', 'Lund']
       };
     },
@@ -90,9 +94,12 @@
     },
 
     methods: {
-      async search() {
-        const response = await this.$store.dispatch('doSearch');
-
+      async search(query: string) {
+        const response = await axios.get(`http://localhost:9000/searches/search?query=${query}`);
+        const names = response.data.map((res: any) => {
+          return res.name;
+        });
+        this.searchResult = names;
       }
     }
 
