@@ -1,16 +1,40 @@
 <template>
   <div>
-    <vue-bootstrap-typeahead placeholder="Sök restauranger eller maträtter" v-model="searchQuery.query" :data="['McDonald', 'Burger King', 'Mexico']">
-      <template slot="append">
-        <b-button @click="search" variant="primary">Hitta catering nära dig</b-button>
-      </template>
-    </vue-bootstrap-typeahead>
-    <b-col cols="4">
-      <multiselect v-model="searchQuery.preferences"
-                   :multiple="true"
-                   :options="preferenceOptions">
-      </multiselect>
-    </b-col>
+    <b-row>
+      <b-col>
+        <vue-bootstrap-typeahead placeholder="Sök restauranger eller maträtter" v-model="searchQuery.query" :data="['McDonald', 'Burger King', 'Mexico']">
+          <template slot="append">
+            <b-button @click="search" variant="primary">Hitta catering nära dig</b-button>
+          </template>
+        </vue-bootstrap-typeahead>
+      </b-col>
+    </b-row>
+    <b-row style="margin-top: 20px">
+      <b-col cols="3">
+        <multiselect v-model="searchQuery.cities"
+                     :multiple="true"
+                     :options="cityOptions">
+        </multiselect>
+      </b-col>
+      <b-col cols="3">
+        <multiselect v-model="searchQuery.categories"
+                     :multiple="true"
+                     :options="menuCategories">
+        </multiselect>
+      </b-col>
+      <b-col cols="3">
+        <multiselect v-model="searchQuery.preferences"
+                     :multiple="true"
+                     :options="preferenceOptions">
+        </multiselect>
+      </b-col>
+      <b-col cols="3">
+        <multiselect v-model="searchQuery.types"
+                     :multiple="true"
+                     :options="typeOptions">
+        </multiselect>
+      </b-col>
+    </b-row>
   </div>
 </template>
 <script lang="ts">
@@ -30,8 +54,10 @@
           query: '',
           categories: [],
           preferences: [],
-          types: []
-        }
+          types: [],
+          cities: []
+        },
+        cityOptions: ['Stockholm', 'Göteborg', 'Örebro', 'Lund']
       };
     },
 
@@ -46,16 +72,22 @@
 
       preferenceOptions(): any {
         return this.$store.getters.preferenceOptions;
+      },
+
+      menuCategories(): any {
+        return this.$store.getters.menuCategories;
       }
 
     },
 
     mounted() {
       this.$store.dispatch('getMealMetadata');
+      this.$store.dispatch('getAllMenuCategories');
     },
 
     methods: {
-      search() {
+      async search() {
+        const response = await this.$store.dispatch('doSearch');
 
       }
     }
