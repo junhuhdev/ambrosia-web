@@ -3,32 +3,18 @@
     <div class="search-bar">
       <h1>Catering levererad till ditt företag</h1>
       <h3 style="margin-bottom: 30px">Vi har samlat dina bästa lokala cateringkök på en plats</h3>
-      <vue-bootstrap-typeahead placeholder="Restaurang, meny, mat..." v-model="query" :data="['McDonald', 'Burger King', 'Mexico']">
-        <template slot="append">
-          <b-button @click="search" variant="primary">Hitta catering nära dig</b-button>
-        </template>
-      </vue-bootstrap-typeahead>
+      <SearchBar/>
     </div>
   </b-container>
 </template>
 <script lang="ts">
   import Vue from 'vue';
-  import VueBootstrapTypeahead from 'vue-bootstrap-typeahead';
+  import SearchBar from '@/views/search/SearchBar.vue';
 
   export default Vue.extend({
-    components: {VueBootstrapTypeahead},
-
-    data() {
-      return {
-        query: ''
-      };
+    components: {
+      SearchBar
     },
-
-    methods: {
-      search() {
-
-      }
-    }
   });
 </script>
 <style scoped>
