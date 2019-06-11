@@ -3,7 +3,7 @@
     <b-row>
       <b-col>
         <vue-bootstrap-typeahead placeholder="Sök restauranger eller maträtter"
-                                 v-model="searchQuery.query"
+                                 v-model="query"
                                  :minMatchingChars="3"
                                  :data="searchResult">
           <template slot="append">
@@ -66,6 +66,7 @@
           types: [],
           cities: []
         },
+        query: '',
         searchResult: [],
         cityOptions: ['Stockholm', 'Göteborg', 'Örebro', 'Lund']
       };
@@ -106,9 +107,11 @@
     },
 
     watch: {
-      searchResult(newVal, oldVal) {
-        const debouncedAjaxCall = _.debounce(() => this.search(newVal), 1000, true);
-        debouncedAjaxCall();
+      query(newVal, oldVal) {
+        if (newVal.length > 4) {
+          const debouncedAjaxCall = _.debounce(() => this.search(newVal), 1000, true);
+          debouncedAjaxCall();
+        }
       }
     },
 
