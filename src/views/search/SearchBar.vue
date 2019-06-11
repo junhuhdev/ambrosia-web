@@ -13,24 +13,28 @@
       <b-col cols="3">
         <multiselect v-model="searchQuery.cities"
                      :multiple="true"
+                     placeholder="Välj stad..."
                      :options="cityOptions">
         </multiselect>
       </b-col>
       <b-col cols="3">
         <multiselect v-model="searchQuery.categories"
                      :multiple="true"
+                     placeholder="Välj kategorier..."
                      :options="menuCategories">
         </multiselect>
       </b-col>
       <b-col cols="3">
         <multiselect v-model="searchQuery.preferences"
                      :multiple="true"
+                     placeholder="Välj preferencer..."
                      :options="preferenceOptions">
         </multiselect>
       </b-col>
       <b-col cols="3">
         <multiselect v-model="searchQuery.types"
                      :multiple="true"
+                     placeholder="Välj mat typ..."
                      :options="typeOptions">
         </multiselect>
       </b-col>
