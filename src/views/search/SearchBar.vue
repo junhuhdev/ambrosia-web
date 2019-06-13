@@ -99,10 +99,10 @@
     methods: {
       async search(query: string) {
         const response = await axios.get(`http://localhost:9000/searches/search?query=${query}`);
-        const names = response.data.map((res: any) => {
-          return res.name;
-        });
-        this.searchResult = names;
+        // const names = response.data.map((res: any) => {
+        //   return res.name;
+        // });
+        this.searchResult = response.data;
       }
     },
 
