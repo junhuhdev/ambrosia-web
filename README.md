@@ -10,9 +10,10 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Production preparation
 ```
-npm run build
+(1) git pull
+(2) npm run build
 ```
 
 ### Run your tests
