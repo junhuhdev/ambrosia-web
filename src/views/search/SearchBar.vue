@@ -98,7 +98,7 @@
 
     methods: {
       async search(query: string) {
-        const response = await axios.get(`http://localhost:9000/searches/search?query=${query}`);
+        const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/searches/search?query=${query}`);
         // const names = response.data.map((res: any) => {
         //   return res.name;
         // });

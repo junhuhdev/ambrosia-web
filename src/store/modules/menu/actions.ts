@@ -18,7 +18,7 @@ export const actions: ActionTree<MenuState, RootState> = {
   },
 
   searchMenus({commit}: ActionContext<MenuState, RootState>, restaurantId: any): void {
-    const temp = 'http://localhost:9000/menus/search?restaurantId=' + restaurantId;
+    const temp = `${process.env.VUE_APP_BACKEND_URL}/menus/search?restaurantId=${restaurantId}`;
     if (restaurantId) {
       axios.get(temp)
         .then(response => {
@@ -31,7 +31,7 @@ export const actions: ActionTree<MenuState, RootState> = {
   },
 
   getMenuDetails({commit}: ActionContext<MenuState, RootState>, id: number): void {
-    axios.get(`http://localhost:9000/menus/` + {id})
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/menus/${id}`)
       .then(response => {
         commit(GET_MENU_DETAILS, response.data);
       })
@@ -41,7 +41,7 @@ export const actions: ActionTree<MenuState, RootState> = {
   },
 
   getAllMenuCategories({commit}: ActionContext<MenuState, RootState>): void {
-    axios.get(`http://localhost:9000/menus/categories`)
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/menus/categories`)
       .then(response => {
         commit(GET_ALL_MENU_CATEGORIES, response.data);
       })
@@ -51,7 +51,7 @@ export const actions: ActionTree<MenuState, RootState> = {
   },
 
   async createMenuDetails({commit}: ActionContext<MenuState, RootState>, payload: Menu): Promise<any> {
-    const response = await axios.post(`http://localhost:9000/menus`, payload);
+    const response = await axios.post(`${process.env.VUE_APP_BACKEND_URL}/menus`, payload);
     commit(CREATE_MENU_DETAILS, response.data);
     return response.data;
   }
