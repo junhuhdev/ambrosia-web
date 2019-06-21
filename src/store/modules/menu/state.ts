@@ -1,4 +1,5 @@
-import { Menu, menuInitialState } from '@/model/menu';
+import { Menu } from '@/model/model';
+import { menuInitialState } from '@/model/model-initialstate';
 
 
 export interface MenuState {

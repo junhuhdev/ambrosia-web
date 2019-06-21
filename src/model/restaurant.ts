@@ -2,7 +2,7 @@ import { Money } from '@/model/money';
 import { Shipping } from '@/model/shipping';
 import { Address } from '@/model/address';
 import { RangeLimit } from '@/model/rangelimit';
-import { Menu } from '@/model/menu';
+import { Menu } from '@/model/model';
 
 export interface Restaurant {
   id: number

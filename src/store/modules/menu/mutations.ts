@@ -6,7 +6,7 @@ import {
   GET_ALL_MENUS,
   GET_MENU_DETAILS
 } from '@/store/modules/menu/types';
-import { Menu } from '@/model/menu';
+import { Menu } from '@/model/model';
 
 
 export const mutations: MutationTree<MenuState> = {

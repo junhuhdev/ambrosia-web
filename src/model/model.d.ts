@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.14.505 on 2019-06-21 18:47:06.
+// Generated using typescript-generator version 2.14.505 on 2019-06-21 19:29:41.
 
 export interface Address {
     id: number;
@@ -9,13 +9,6 @@ export interface Address {
     country: string;
     city: string;
     state: string;
-}
-
-export interface AuditInfo {
-    created: Date;
-    createdBy: string;
-    updated: Date;
-    updatedBy: string;
 }
 
 export interface MoneyBase {
@@ -135,7 +128,10 @@ export interface Menu {
     restaurantId: number;
     category: MenuCategory;
     meals: Meal[];
-    auditInfo: AuditInfo;
+    created: Date;
+    createdBy: string;
+    updated: Date;
+    updatedBy: string;
 }
 
 export interface MenuQuery {

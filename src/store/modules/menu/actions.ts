@@ -1,7 +1,6 @@
 import { ActionContext, ActionTree } from 'vuex';
 import { MenuState } from '@/store/modules/menu/state';
 import { RootState } from '@/store/store';
-import { Menu } from '@/model/menu';
 import axios from 'axios';
 import {
   CREATE_MENU_DETAILS,
@@ -9,6 +8,7 @@ import {
   GET_ALL_MENUS,
   GET_MENU_DETAILS
 } from '@/store/modules/menu/types';
+import { Menu } from '@/model/model';
 
 
 export const actions: ActionTree<MenuState, RootState> = {

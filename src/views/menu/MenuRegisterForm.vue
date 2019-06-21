@@ -32,7 +32,7 @@
 </template>
 <script lang="ts">
   import Vue from 'vue';
-  import { menuInitialState } from '@/model/menu';
+  import { menuInitialState } from '@/model/model-initialstate';
 
   export default Vue.extend({
 
