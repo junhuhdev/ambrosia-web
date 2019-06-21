@@ -14,7 +14,7 @@
           </td>
           <td class="align-center">{{ product.quantity }}</td>
           <td class="align-center">
-            <button @click="quantityChange(product, 'increment')"><i class="close fa fa-plus"></i></button>
+            <button @click="addToCart(product)"><i class="close fa fa-plus"></i></button>
           </td>
           <td class="align-center">{{ product.name }}</td>
           <td>{{ product.amount }} {{ product.amountCy }}</td>
@@ -76,6 +76,10 @@
 
       quantityChange() {
       },
+
+      addToCart(meal: any) {
+        this.$store.dispatch('addToCart', meal);
+      }
     }
   });
 </script>
