@@ -10,7 +10,7 @@
             <div class="cartImage" @click="removeCartItem(product)" style="background-size: cover; background-position: center;"><i class="close fa fa-times"></i></div>
           </td>
           <td class="align-center">
-            <button @click="quantityChange(product, 'decrement')"><i class="close fa fa-minus"></i></button>
+            <button @click="removeFromCart(product)"><i class="close fa fa-minus"></i></button>
           </td>
           <td class="align-center">{{ product.quantity }}</td>
           <td class="align-center">
@@ -75,6 +75,10 @@
       },
 
       quantityChange() {
+      },
+
+      removeFromCart(meal: any) {
+        this.$store.dispatch('removeFromCart', meal);
       },
 
       addToCart(meal: any) {

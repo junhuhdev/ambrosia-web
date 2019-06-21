@@ -2,7 +2,7 @@ import { ActionContext, ActionTree } from 'vuex';
 import { RootState } from '@/store/store';
 import {
   ADD_TO_CART,
-  CLEAR_CART,
+  CLEAR_CART, DECREMENT_CART_ITEM,
   GET_ALL_CART_ITEMS,
   INCREMENT_CART_ITEM,
   REMOVE_FROM_CART
@@ -24,8 +24,14 @@ export const actions: ActionTree<CartState, RootState> = {
     }
   },
 
-  removeFromCart({commit}: ActionContext<CartState, RootState>, meal: any): void {
-    commit(REMOVE_FROM_CART, meal);
+  removeFromCart({state, rootState, commit}: ActionContext<CartState, RootState>, meal: Meal): void {
+    const existingMeal = state.added.find((existingMeal) => existingMeal.id == meal.id);
+    if (existingMeal && existingMeal.quantity == 1) {
+      commit(REMOVE_FROM_CART, existingMeal);
+    }
+    if (existingMeal) {
+      commit(DECREMENT_CART_ITEM, existingMeal);
+    }
   },
 
   clearCart({commit}: ActionContext<CartState, RootState>): void {
