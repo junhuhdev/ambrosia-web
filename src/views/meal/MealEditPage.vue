@@ -54,8 +54,8 @@
 <script lang="ts">
   import Vue from 'vue';
   import { currencyOptions } from '@/model/money';
-  import { mealInitialState } from '@/model/meal';
   import Multiselect from 'vue-multiselect';
+  import { mealInitialState } from '@/model/model-initialstate';
 
   export default Vue.extend({
 

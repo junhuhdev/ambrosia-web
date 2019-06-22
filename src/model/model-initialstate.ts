@@ -1,4 +1,4 @@
-import { Menu, Restaurant } from '@/model/model';
+import { Meal, Menu, Restaurant } from '@/model/model';
 
 export const menuInitialState = (): Menu => {
   return {
@@ -10,6 +10,25 @@ export const menuInitialState = (): Menu => {
     createdBy: '',
     updated: new Date(),
     updatedBy: ''
+  };
+};
+
+export const mealInitialState = (): Meal => {
+  return {
+    id: 0,
+    menuId: 0,
+    name: '',
+    description: '',
+    amount: 0,
+    amountCy: '',
+    types: [],
+    preferences: [],
+    created: new Date(),
+    updated: new Date(),
+    createdBy: '',
+    updatedBy: '',
+    quantity: 0,
+    imageUrl: '',
   };
 };
 

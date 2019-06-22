@@ -1,4 +1,5 @@
-import { Meal, mealInitialState } from '@/model/meal';
+import { Meal } from '@/model/model';
+import { mealInitialState } from '@/model/model-initialstate';
 
 
 export interface MealState {

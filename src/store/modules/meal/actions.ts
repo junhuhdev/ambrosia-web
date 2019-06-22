@@ -2,8 +2,8 @@ import { ActionContext, ActionTree } from 'vuex';
 import { MealState } from '@/store/modules/meal/state';
 import { RootState } from '@/store/store';
 import axios from 'axios';
-import { Meal } from '@/model/meal';
 import { DELETE_MEAL, INSERT_MEAL, SELECT_MEAL, SELECT_MEAL_METADATA, UPDATE_MEAL } from '@/store/modules/meal/types';
+import { Meal } from '@/model/model';
 
 
 export const actions: ActionTree<MealState, RootState> = {

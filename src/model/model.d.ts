@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.14.505 on 2019-06-22 11:19:21.
+// Generated using typescript-generator version 2.14.505 on 2019-06-22 13:49:48.
 
 export interface Address {
     id: number;
@@ -97,6 +97,7 @@ export interface Meal {
     createdBy: string;
     updated: Date;
     updatedBy: string;
+    quantity: number;
 }
 
 export interface MealMetadata {
@@ -290,7 +291,7 @@ export type ImageUploadType = "RESTAURANT" | "MEAL";
 
 export type MealPreferenceEnum = "VEGETARIAN" | "VEGAN" | "GLUTEN_FREE";
 
-export type MealTypeEnum = "CAKES" | "SMOOTHIES" | "SEMLA" | "SANDWICH" | "JUICE" | "MAIN" | "CHICKEN" | "VEGETARIAN" | "LAMB" | "MINI_HAMBURGER" | "BUFFET" | "SALAD" | "SMALL" | "WRAPS";
+export type MealTypeEnum = "CAKES" | "SMOOTHIES" | "SEMLA" | "SANDWICH" | "JUICE" | "MAIN" | "CHICKEN" | "LAMB" | "MINI_HAMBURGER" | "BUFFET" | "SALAD" | "SMALL" | "WRAPS";
 
 export type MenuCategory = "BREAKFAST" | "LUNCH" | "DINNER" | "SNACKS" | "DRINKS" | "BAR" | "FOOD_TRUCK";
 
