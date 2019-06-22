@@ -1,5 +1,5 @@
 <template>
-  <b-container >
+  <b-container>
     <b-row>
       <b-col>
         <h1>Create Menu</h1>
@@ -76,8 +76,9 @@
     },
 
     methods: {
-      onSubmit(e: Event) {
+      async onSubmit(e: Event) {
         e.preventDefault();
+        const response = await this.$store.dispatch('insertMenu', this.menu);
       },
 
       onReset(e: Event) {
