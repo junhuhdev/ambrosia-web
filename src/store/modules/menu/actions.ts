@@ -3,26 +3,34 @@ import { MenuState } from '@/store/modules/menu/state';
 import { RootState } from '@/store/store';
 import axios from 'axios';
 import {
-  CREATE_MENU_DETAILS,
-  GET_ALL_MENU_CATEGORIES,
-  GET_ALL_MENUS,
-  GET_MENU_DETAILS
+  INSERT_MENU,
+  SELECT_MENU_CATEGORIES,
+  SELECT_MENUS,
+  SELECT_MENU
 } from '@/store/modules/menu/types';
 import { Menu } from '@/model/model';
 
 
 export const actions: ActionTree<MenuState, RootState> = {
 
-  getAllMenus({commit}: ActionContext<MenuState, RootState>): void {
+  /** READ OPERATIONS **/
+
+  async selectMenus({commit}: ActionContext<MenuState, RootState>): Promise<any> {
 
   },
 
-  searchMenus({commit}: ActionContext<MenuState, RootState>, restaurantId: any): void {
+  async selectMenu({commit}: ActionContext<MenuState, RootState>, id: number): Promise<any> {
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/menus/${id}`);
+    commit(SELECT_MENU, response.data);
+    return response.data;
+  },
+
+  async searchMenus({commit}: ActionContext<MenuState, RootState>, restaurantId: any): Promise<any> {
     const temp = `${process.env.VUE_APP_BACKEND_URL}/menus/search?restaurantId=${restaurantId}`;
     if (restaurantId) {
       axios.get(temp)
         .then(response => {
-          commit(GET_ALL_MENUS, response.data);
+          commit(SELECT_MENUS, response.data);
         })
         .catch(e => {
           console.log(e);
@@ -30,29 +38,17 @@ export const actions: ActionTree<MenuState, RootState> = {
     }
   },
 
-  getMenuDetails({commit}: ActionContext<MenuState, RootState>, id: number): void {
-    axios.get(`${process.env.VUE_APP_BACKEND_URL}/menus/${id}`)
-      .then(response => {
-        commit(GET_MENU_DETAILS, response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  async selectMenuCategories({commit}: ActionContext<MenuState, RootState>): Promise<any> {
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/menus/categories`);
+    commit(SELECT_MENU_CATEGORIES, response.data);
+    return response.data;
   },
 
-  getAllMenuCategories({commit}: ActionContext<MenuState, RootState>): void {
-    axios.get(`${process.env.VUE_APP_BACKEND_URL}/menus/categories`)
-      .then(response => {
-        commit(GET_ALL_MENU_CATEGORIES, response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  },
+  /** WRITE OPERATIONS **/
 
-  async createMenuDetails({commit}: ActionContext<MenuState, RootState>, payload: Menu): Promise<any> {
+  async insertMenu({commit}: ActionContext<MenuState, RootState>, payload: Menu): Promise<any> {
     const response = await axios.post(`${process.env.VUE_APP_BACKEND_URL}/menus`, payload);
-    commit(CREATE_MENU_DETAILS, response.data);
+    commit(INSERT_MENU, response.data);
     return response.data;
   }
 

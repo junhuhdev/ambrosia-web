@@ -1,29 +1,29 @@
 import { MutationTree } from 'vuex';
 import { MenuState } from '@/store/modules/menu/state';
 import {
-  CREATE_MENU_DETAILS,
-  GET_ALL_MENU_CATEGORIES,
-  GET_ALL_MENUS,
-  GET_MENU_DETAILS
+  INSERT_MENU,
+  SELECT_MENU_CATEGORIES,
+  SELECT_MENUS,
+  SELECT_MENU
 } from '@/store/modules/menu/types';
 import { Menu } from '@/model/model';
 
 
 export const mutations: MutationTree<MenuState> = {
 
-  [GET_ALL_MENUS]: (state: MenuState, payload: Menu[]) => {
+  [SELECT_MENUS]: (state: MenuState, payload: Menu[]) => {
     state.menus = payload;
   },
 
-  [GET_MENU_DETAILS]: (state: MenuState, payload: Menu) => {
+  [SELECT_MENU]: (state: MenuState, payload: Menu) => {
     state.menuDetail = payload;
   },
 
-  [GET_ALL_MENU_CATEGORIES]: (state: MenuState, payload: string[]) => {
+  [SELECT_MENU_CATEGORIES]: (state: MenuState, payload: string[]) => {
     state.categories = payload;
   },
 
-  [CREATE_MENU_DETAILS]: (state: MenuState, payload: Menu) => {
+  [INSERT_MENU]: (state: MenuState, payload: Menu) => {
 
   }
 

@@ -97,14 +97,14 @@
     },
 
     async mounted() {
-      const response = await this.$store.dispatch('getRestaurantDetails', this.id);
+      const response = await this.$store.dispatch('selectRestaurant', this.id);
       this.restaurant = Object.assign({}, this.restaurant, response);
     },
 
     methods: {
       async onSubmit(e: Event) {
         e.preventDefault();
-        const response = await this.$store.dispatch('updateRestaurantDetails', this.restaurant);
+        const response = await this.$store.dispatch('updateRestaurant', this.restaurant);
         router.push({name: 'restaurant-detail', params: {id: response.id}});
       },
 

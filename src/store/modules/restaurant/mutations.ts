@@ -1,28 +1,28 @@
 import { MutationTree } from 'vuex';
 import { RestaurantState } from '@/store/modules/restaurant/state';
 import {
-  CREATE_RESTAURANT_DETAILS,
-  GET_ALL_RESTAURANTS,
-  GET_RESTAURANT_DETAILS, UPDATE_RESTAURANT_DETAILS, UPLOAD_IMAGE_RESTAURANT
+  INSERT_RESTAURANT,
+  SELECT_RESTAURANTS,
+  SELECT_RESTAURANT, UPDATE_RESTAURANT, UPLOAD_IMAGE_RESTAURANT
 } from '@/store/modules/restaurant/types';
 import { Restaurant } from '@/model/model';
 
 
 export const mutations: MutationTree<RestaurantState> = {
 
-  [GET_ALL_RESTAURANTS]: (state: RestaurantState, payload: Restaurant[]) => {
+  [SELECT_RESTAURANTS]: (state: RestaurantState, payload: Restaurant[]) => {
     state.restaurants = payload;
   },
 
-  [GET_RESTAURANT_DETAILS]: (state: RestaurantState, payload: Restaurant) => {
+  [SELECT_RESTAURANT]: (state: RestaurantState, payload: Restaurant) => {
     state.restaurantDetail = payload;
   },
 
-  [CREATE_RESTAURANT_DETAILS]: (state: RestaurantState, payload: Restaurant) => {
+  [INSERT_RESTAURANT]: (state: RestaurantState, payload: Restaurant) => {
 
   },
 
-  [UPDATE_RESTAURANT_DETAILS]: (state: RestaurantState, payload: Restaurant) => {
+  [UPDATE_RESTAURANT]: (state: RestaurantState, payload: Restaurant) => {
     state.restaurantDetail = payload;
   },
 

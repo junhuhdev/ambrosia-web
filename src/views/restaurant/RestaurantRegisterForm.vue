@@ -90,7 +90,7 @@
     methods: {
       async onSubmit(e: Event) {
         e.preventDefault();
-        const response = await this.$store.dispatch('createRestaurantDetails', this.restaurant);
+        const response = await this.$store.dispatch('insertRestaurant', this.restaurant);
         router.push({name: 'restaurant-detail', params: {id: response.id}});
       },
 

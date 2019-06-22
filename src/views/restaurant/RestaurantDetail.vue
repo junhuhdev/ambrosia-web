@@ -68,7 +68,7 @@
     },
 
     created() {
-      this.$store.dispatch('getRestaurantDetails', this.id);
+      this.$store.dispatch('selectRestaurant', this.id);
     },
 
     methods: {

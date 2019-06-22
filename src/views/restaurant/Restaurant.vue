@@ -47,7 +47,7 @@
     },
 
     created() {
-      this.$store.dispatch('getAllRestaurants');
+      this.$store.dispatch('selectRestaurants');
     },
 
     methods: {
