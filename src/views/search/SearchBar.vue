@@ -4,6 +4,7 @@
       <b-col>
         <vue-bootstrap-typeahead placeholder="Sök restauranger eller maträtter"
                                  v-model="query"
+                                 :serializer="s => s.header + ' - ' + s.subHeader + ' - ' + s.city"
                                  :minMatchingChars="3"
                                  :data="searchResult">
           <template slot="append">
@@ -108,7 +109,7 @@
 
     watch: {
       query(newVal, oldVal) {
-        if (newVal.length > 4) {
+        if (newVal.length > 3) {
           const debouncedAjaxCall = _.debounce(() => this.search(newVal), 1000, true);
           debouncedAjaxCall();
         }

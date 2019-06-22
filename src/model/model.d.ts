@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.14.505 on 2019-06-21 19:29:41.
+// Generated using typescript-generator version 2.14.505 on 2019-06-22 11:19:21.
 
 export interface Address {
     id: number;
@@ -205,7 +205,9 @@ export interface SearchQuery {
 
 export interface SearchResult {
     id: number;
-    name: string;
+    header: string;
+    subHeader: string;
+    imageUrl: string;
     description: string;
     city: string;
     amount: number;
