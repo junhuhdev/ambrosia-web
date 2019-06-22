@@ -71,8 +71,8 @@
     },
 
     created() {
-      this.$store.dispatch('getAllRestaurants');
-      this.$store.dispatch('getAllMenuCategories');
+      this.$store.dispatch('selectRestaurants');
+      this.$store.dispatch('selectMenuCategories');
     },
 
     methods: {
@@ -86,7 +86,7 @@
 
       getRestaurantDetail(restaurantId: string) {
         if (restaurantId !== '') {
-          this.$store.dispatch('getRestaurantDetails', this.selectedRestaurant);
+          this.$store.dispatch('selectRestaurant', this.selectedRestaurant);
         }
       }
     }

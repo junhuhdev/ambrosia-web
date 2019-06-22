@@ -6,14 +6,12 @@ import {
   INSERT_MENU,
   SELECT_MENU_CATEGORIES,
   SELECT_MENUS,
-  SELECT_MENU
+  SELECT_MENU, DELETE_MENU, UPDATE_MENU
 } from '@/store/modules/menu/types';
 import { Menu } from '@/model/model';
 
 
 export const actions: ActionTree<MenuState, RootState> = {
-
-  /** READ OPERATIONS **/
 
   async selectMenus({commit}: ActionContext<MenuState, RootState>): Promise<any> {
 
@@ -44,11 +42,21 @@ export const actions: ActionTree<MenuState, RootState> = {
     return response.data;
   },
 
-  /** WRITE OPERATIONS **/
-
   async insertMenu({commit}: ActionContext<MenuState, RootState>, payload: Menu): Promise<any> {
     const response = await axios.post(`${process.env.VUE_APP_BACKEND_URL}/menus`, payload);
     commit(INSERT_MENU, response.data);
+    return response.data;
+  },
+
+  async updateMenu({commit}: ActionContext<MenuState, RootState>, payload: Menu): Promise<any> {
+    const response = await axios.post(`${process.env.VUE_APP_BACKEND_URL}/menus/${payload.id}`, payload);
+    commit(UPDATE_MENU, response.data);
+    return response.data;
+  },
+
+  async deleteMenu({commit}: ActionContext<MenuState, RootState>, id: number): Promise<any> {
+    const response = await axios.delete(`${process.env.VUE_APP_BACKEND_URL}/menus/${id}`);
+    commit(DELETE_MENU, response.data);
     return response.data;
   }
 

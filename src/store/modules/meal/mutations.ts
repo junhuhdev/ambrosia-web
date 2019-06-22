@@ -1,24 +1,24 @@
 import { MutationTree } from 'vuex';
 import { MealState } from '@/store/modules/meal/state';
-import { CREATE_MEAL_DETAILS, GET_ALL_MEALS, GET_MEAL_DETAILS, GET_MEAL_METADATA } from '@/store/modules/meal/types';
+import { INSERT_MEAL, SELECT_MEALS, SELECT_MEAL, SELECT_MEAL_METADATA } from '@/store/modules/meal/types';
 import { Meal } from '@/model/meal';
 
 
 export const mutations: MutationTree<MealState> = {
 
-  [GET_ALL_MEALS]: (state: MealState, payload: Meal[]) => {
+  [SELECT_MEALS]: (state: MealState, payload: Meal[]) => {
     state.meals = payload;
   },
 
-  [GET_MEAL_DETAILS]: (state: MealState, payload: Meal) => {
+  [SELECT_MEAL]: (state: MealState, payload: Meal) => {
     state.mealDetail = payload;
   },
 
-  [CREATE_MEAL_DETAILS]: (state: MealState, payload: Meal) => {
+  [INSERT_MEAL]: (state: MealState, payload: Meal) => {
 
   },
 
-  [GET_MEAL_METADATA]: (state: MealState, payload: any) => {
+  [SELECT_MEAL_METADATA]: (state: MealState, payload: any) => {
     state.metadata = payload;
   }
 

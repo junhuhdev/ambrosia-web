@@ -111,14 +111,14 @@
     },
 
     created() {
-      this.$store.dispatch('getAllRestaurants');
-      this.$store.dispatch('getMealMetadata');
+      this.$store.dispatch('selectRestaurants');
+      this.$store.dispatch('selectMealMetadata');
     },
 
     methods: {
       async onSubmit(e: Event) {
         e.preventDefault();
-        const response = await this.$store.dispatch('createMealDetails', this.meal);
+        const response = await this.$store.dispatch('insertMeal', this.meal);
       },
 
       onReset(e: Event) {
