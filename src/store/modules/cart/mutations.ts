@@ -7,7 +7,7 @@ import {
   INCREMENT_CART_ITEM,
   REMOVE_FROM_CART
 } from '@/store/modules/cart/types';
-import { Meal } from '@/model/meal';
+import { Meal } from '@/model/model';
 
 
 export const mutations: MutationTree<CartState> = {

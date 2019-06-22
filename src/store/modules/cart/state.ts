@@ -1,4 +1,4 @@
-import { Meal } from '@/model/meal';
+import { Meal } from '@/model/model';
 
 export interface CartState {
   added: Meal[];

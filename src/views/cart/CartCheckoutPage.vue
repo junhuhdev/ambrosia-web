@@ -11,7 +11,7 @@
         <p><b>Total:</b> {{total}} SEK</p>
       </div>
     </b-card>
-    <CartCheckoutForm/>
+    <CartCheckoutForm v-bind:meals="meals"/>
   </b-container>
 </template>
 <script lang="ts">

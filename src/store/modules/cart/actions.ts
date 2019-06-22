@@ -8,7 +8,7 @@ import {
   REMOVE_FROM_CART
 } from '@/store/modules/cart/types';
 import { CartState } from '@/store/modules/cart/state';
-import { Meal } from '@/model/meal';
+import { Meal } from '@/model/model';
 
 export const actions: ActionTree<CartState, RootState> = {
   getAllCartItems({commit}: ActionContext<CartState, RootState>) {

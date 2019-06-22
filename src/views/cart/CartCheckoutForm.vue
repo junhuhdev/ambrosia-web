@@ -6,31 +6,31 @@
           <b-row>
             <b-col cols="2">
               <b-form-group label="Datum & Tid">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.delivery.expectedDate"/>
               </b-form-group>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
               <b-form-group label="Gatuaddress">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.delivery.street"/>
               </b-form-group>
             </b-col>
             <b-col cols="3">
               <b-form-group label="Postnummer">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.delivery.postalCode"/>
               </b-form-group>
             </b-col>
             <b-col cols="3">
               <b-form-group label="Ort">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.delivery.city"/>
               </b-form-group>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
               <b-form-group label="Fakturaanmärkning">
-                <b-form-textarea placeholder="Faktura beskrivning..." rows="5"/>
+                <b-form-textarea v-model="order.customer.delivery.invoiceComment" placeholder="Faktura beskrivning..." rows="5"/>
               </b-form-group>
             </b-col>
           </b-row>
@@ -41,19 +41,19 @@
           <b-row>
             <b-col>
               <b-form-group label="Namn">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.name"/>
               </b-form-group>
             </b-col>
             <b-col>
               <b-form-group label="E-post">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.email"/>
               </b-form-group>
             </b-col>
           </b-row>
           <b-row>
             <b-col cols="6">
               <b-form-group label="Telefon">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.phone"/>
               </b-form-group>
             </b-col>
           </b-row>
@@ -64,29 +64,29 @@
           <b-row>
             <b-col>
               <b-form-group label="Företagsnamn">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.company.name"/>
               </b-form-group>
             </b-col>
             <b-col>
               <b-form-group label="Organisationsnummer">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.company.organisationNumber"/>
               </b-form-group>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
               <b-form-group label="Gatuaddress">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.company.street"/>
               </b-form-group>
             </b-col>
             <b-col cols="3">
               <b-form-group label="Postnummer">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.company.postalCode"/>
               </b-form-group>
             </b-col>
             <b-col cols="3">
               <b-form-group label="Ort">
-                <b-form-input></b-form-input>
+                <b-form-input v-model="order.customer.company.city"/>
               </b-form-group>
             </b-col>
           </b-row>
@@ -109,25 +109,30 @@
   </div>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
+  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import { orderInitialState } from '@/model/model-initialstate';
+  import { Meal, Order } from '@/model/model';
 
-  export default Vue.extend({
+  @Component
+  export default class CartCheckoutForm extends Vue {
+    order!: Order;
 
-    data() {
-      return {};
-    },
+    @Prop() private meals!: Array<Meal>;
 
-    methods: {
-      onSubmit(e: Event) {
-        e.preventDefault();
-      },
-
-      onReset(e: Event) {
-        e.preventDefault();
-      }
+    created() {
+      this.order = orderInitialState();
     }
 
-  });
+    onSubmit(e: Event) {
+      e.preventDefault();
+    }
+
+
+    onReset(e: Event) {
+      e.preventDefault();
+    }
+
+  }
 </script>
 <style scoped>
 </style>

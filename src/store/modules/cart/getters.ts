@@ -1,7 +1,7 @@
 import { GetterTree } from 'vuex';
 import { CartState } from '@/store/modules/cart/state';
 import { RootState } from '@/store/store';
-import { Meal } from '@/model/meal';
+import { Meal } from '@/model/model';
 
 
 export const getters: GetterTree<CartState, RootState> = {
