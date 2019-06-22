@@ -1,4 +1,4 @@
-import { Menu } from '@/model/model';
+import { Menu, Restaurant } from '@/model/model';
 
 export const menuInitialState = (): Menu => {
   return {
@@ -11,4 +11,55 @@ export const menuInitialState = (): Menu => {
     updated: new Date(),
     updatedBy: ''
   };
+};
+
+export const restaurantInitialState = (): Restaurant => {
+  return {
+    id: 0,
+    name: '',
+    description: '',
+    shortDescription: '',
+    status: 'ACTIVE',
+    address: {
+      id: 0,
+      street: '',
+      city: '',
+      country: '',
+      postalCode: '',
+      state: ''
+    },
+    menus: [],
+    shipping: {
+      shippingComment: '',
+      shippingFreeLimit: {
+        amount: 0,
+        currency: ''
+      },
+      shippingAmount: {
+        amount: 0,
+        currency: ''
+      }
+    },
+    imageUrl: '',
+    openingHours: [],
+    recipientLimit: {
+      from: 0,
+      to: 0
+    },
+    minimumOrderAmount: {
+      amount: 0,
+      currency: ''
+    },
+    created: new Date(),
+    createdBy: '',
+    updated: new Date(),
+    updatedBy: ''
+  };
+};
+
+export const restaurantStatusOptions = (): any => {
+  return [
+    {value: 'ACTIVE', text: 'ACTIVE'},
+    {value: 'INACTIVE', text: 'INACTIVE'}
+  ];
 };

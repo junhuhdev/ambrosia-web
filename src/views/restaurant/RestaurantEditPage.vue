@@ -74,8 +74,8 @@
 <script lang="ts">
   import Vue from 'vue';
   import router from '@/router';
-  import { restaurantInitialState, restaurantStatusOptions } from '@/model/restaurant';
   import { currencyOptions } from '@/model/money';
+  import { restaurantInitialState, restaurantStatusOptions } from '@/model/model-initialstate';
 
   export default Vue.extend({
     name: 'RestaurantEditPage',

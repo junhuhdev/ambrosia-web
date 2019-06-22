@@ -48,19 +48,19 @@
       <b-card>
         <b-form-group label="Shipping Address">
           <b-form-group label-cols-sm="3" label="Street:" label-align-sm="right" label-for="nested-street">
-            <b-form-input id="nested-street"></b-form-input>
+            <b-form-input v-model="restaurant.address.street" id="nested-street"></b-form-input>
           </b-form-group>
           <b-form-group label-cols-sm="3" label="Postal code:" label-align-sm="right" label-for="nested-postal-code">
-            <b-form-input id="nested-postal-code"></b-form-input>
+            <b-form-input v-model="restaurant.address.postalCode" id="nested-postal-code"></b-form-input>
           </b-form-group>
           <b-form-group label-cols-sm="3" label="Country:" label-align-sm="right" label-for="nested-country">
-            <b-form-input id="nested-country"></b-form-input>
+            <b-form-input v-model="restaurant.address.country" id="nested-country"></b-form-input>
           </b-form-group>
           <b-form-group label-cols-sm="3" label="City:" label-align-sm="right" label-for="nested-city">
-            <b-form-input id="nested-city"></b-form-input>
+            <b-form-input v-model="restaurant.address.city" id="nested-city"></b-form-input>
           </b-form-group>
           <b-form-group label-cols-sm="3" label="State:" label-align-sm="right" label-for="nested-state">
-            <b-form-input id="nested-state"></b-form-input>
+            <b-form-input v-model="restaurant.address.state" id="nested-state"></b-form-input>
           </b-form-group>
         </b-form-group>
       </b-card>
@@ -73,9 +73,9 @@
 </template>
 <script lang="ts">
   import Vue from 'vue';
-  import { Restaurant, restaurantInitialState, restaurantStatusOptions } from '@/model/restaurant';
   import router from '@/router';
   import { currencyOptions } from '@/model/money';
+  import { restaurantInitialState, restaurantStatusOptions } from '@/model/model-initialstate';
 
   export default Vue.extend({
 

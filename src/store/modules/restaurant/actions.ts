@@ -7,7 +7,7 @@ import {
   GET_RESTAURANT_DETAILS, UPDATE_RESTAURANT_DETAILS, UPLOAD_IMAGE_RESTAURANT
 } from '@/store/modules/restaurant/types';
 import axios from 'axios';
-import { Restaurant } from '@/model/restaurant';
+import { Restaurant } from '@/model/model';
 
 
 export const actions: ActionTree<RestaurantState, RootState> = {

@@ -1,4 +1,5 @@
-import { Restaurant, restaurantInitialState } from '@/model/restaurant';
+import { Restaurant } from '@/model/model';
+import { restaurantInitialState } from '@/model/model-initialstate';
 
 
 export interface RestaurantState {

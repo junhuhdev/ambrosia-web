@@ -5,7 +5,7 @@ import {
   GET_ALL_RESTAURANTS,
   GET_RESTAURANT_DETAILS, UPDATE_RESTAURANT_DETAILS, UPLOAD_IMAGE_RESTAURANT
 } from '@/store/modules/restaurant/types';
-import { Restaurant } from '@/model/restaurant';
+import { Restaurant } from '@/model/model';
 
 
 export const mutations: MutationTree<RestaurantState> = {

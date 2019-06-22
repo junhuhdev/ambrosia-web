@@ -18,8 +18,8 @@ export const getters: GetterTree<RestaurantState, RootState> = {
       return [];
     }
     const meals: any = [];
-    state.restaurantDetail.menus.map(menu => {
-      menu.meals.map(meal => {
+    state.restaurantDetail.menus.map((menu: any) => {
+      menu.meals.map((meal: any) => {
         meals.push({
           name: meal.name,
           description: meal.description,

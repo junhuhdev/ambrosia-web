@@ -25,8 +25,8 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
   import axios from 'axios';
-  import { Restaurant } from '@/model/restaurant';
   import router from '@/router';
+  import { Restaurant } from '@/model/model';
 
   export default Vue.extend({
 
