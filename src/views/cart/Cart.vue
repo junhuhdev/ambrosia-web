@@ -14,7 +14,6 @@
 <script lang="ts">
   import Vue from 'vue';
   import { mapGetters, mapState } from 'vuex';
-  import { Meal } from '@/model/meal';
 
   export default Vue.extend({
 

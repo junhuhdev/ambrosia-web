@@ -44,7 +44,7 @@
   import axios from 'axios';
   import Cart from '@/views/cart/Cart.vue';
   import router from '@/router';
-  import { Meal } from '@/model/meal';
+  import { Meal } from '@/model/model';
 
   export default Vue.extend({
     name: 'RestaurantDetail',

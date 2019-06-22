@@ -1,4 +1,45 @@
-import { Meal, Menu, Restaurant } from '@/model/model';
+import { Meal, Menu, Order, Restaurant } from '@/model/model';
+
+export const orderInitialState = (): Order => {
+  return  {
+    id: 0,
+    customer: {
+      id: 0,
+      company: {
+        id: 0,
+        city: '',
+        customerId: 0,
+        name: '',
+        organisationNumber: '',
+        postalCode: '',
+        state: '',
+        street: ''
+      },
+      delivery: {
+        id: 0,
+        city: '',
+        customerId: 0,
+        expectedDate: new Date(),
+        invoiceComment: '',
+        postalCode: '',
+        state: '',
+        street: ''
+      },
+      email: '',
+      name: '',
+      phone: ''
+    },
+    deliveryAmount: 0,
+    deliveryAmountCy: '',
+    totalAmount: 0,
+    totalAmountCy: '',
+    items: [],
+    created: new Date(),
+    createdBy: '',
+    updated: new Date(),
+    updatedBy: ''
+  }
+}
 
 export const menuInitialState = (): Menu => {
   return {

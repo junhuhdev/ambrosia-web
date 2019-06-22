@@ -1,0 +1,5 @@
+export const SELECT_ORDER = 'SELECT_ORDER';
+export const SELECT_ORDERS = 'SELECT_ORDERS';
+export const INSERT_ORDER = 'INSERT_ORDER';
+export const UPDATE_ORDER = 'UPDATE_ORDER';
+export const DELETE_ORDER = 'DELETE_ORDER';
