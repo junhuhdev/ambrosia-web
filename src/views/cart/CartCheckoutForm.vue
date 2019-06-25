@@ -6,7 +6,7 @@
           <b-row>
             <b-col cols="2">
               <b-form-group label="Datum & Tid">
-                <b-form-input v-model="order.customer.delivery.expectedDate"/>
+                <datetime v-model="order.customer.delivery.expectedDate"></datetime>
               </b-form-group>
             </b-col>
           </b-row>

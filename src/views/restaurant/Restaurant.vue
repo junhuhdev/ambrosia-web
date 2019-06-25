@@ -3,7 +3,7 @@
     <h1>Restaurants available</h1>
     <b-card-group deck v-if="restaurants">
       <b-row>
-        <b-col cols="4" v-for="restaurant of restaurants" v-bind:key="restaurant.id">
+        <b-col sm="4" v-for="restaurant of restaurants" v-bind:key="restaurant.id">
           <b-card :title="restaurant.name" :img-src="restaurant.imageUrl" img-alt="Image" img-top style="margin-top: 2rem;">
             <b-link class="custom-card" :to="{name: 'restaurant-detail', params: {id: restaurant.id}}">
               <b-card-text><b>Description:</b> {{restaurant.shortDescription}}</b-card-text>
