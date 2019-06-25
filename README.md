@@ -12,8 +12,9 @@ npm run serve
 
 ### Production preparation
 ```
-(1) git pull
-(2) npm run build
+(1) cd /var/wwww/html/ambrosia-web
+(2) git pull
+(3) npm run build
 ```
 
 ### Run your tests
