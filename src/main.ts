@@ -1,6 +1,7 @@
 import '@babel/polyfill';
 import 'mutationobserver-shim';
 import Vue from 'vue';
+import './plugins/vuetify'
 import Datetime from 'vue-datetime';
 import 'vue-datetime/dist/vue-datetime.css';
 import './plugins/bootstrap-vue';

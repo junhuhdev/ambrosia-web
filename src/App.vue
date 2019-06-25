@@ -1,9 +1,12 @@
 <template>
-  <div id="app">
+  <v-app>
     <NavbarHeader/>
-    <br>
-    <router-view/>
-  </div>
+    <v-content>
+      <v-container fluid>
+        <router-view/>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 <script lang="ts">
   import Vue from 'vue';
