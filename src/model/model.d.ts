@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.14.505 on 2019-06-22 13:49:48.
+// Generated using typescript-generator version 2.14.505 on 2019-07-02 17:56:18.
 
 export interface Address {
     id: number;
@@ -168,6 +168,54 @@ export interface OrderQuery {
     customerId: number;
 }
 
+export interface PspRolePassport {
+    countries: string[];
+    role: PspRole;
+}
+
+export interface PspServicePassport {
+    countries: string[];
+    service: string;
+}
+
+export interface RegulatedEntity {
+    id: number;
+    globalUrn: string;
+    addressLine1: string;
+    addressLine2: string;
+    commercialNames: string;
+    competentAuthorityCode: string;
+    competentAuthorityCountry: string;
+    competentAuthoritySourceUrl: string;
+    competentAuthorityStartedDate: Date;
+    competentAuthorityStatus: string;
+    competentAuthorityUrn: string;
+    country: string;
+    dateStopped: Date;
+    deleted: boolean;
+    directoryStatus: string;
+    email: string;
+    fax: string;
+    legalEntityIdentifier: string;
+    name: string;
+    phone: string;
+    postalTown: string;
+    postcode: string;
+    pspCategory: string;
+    pspRolePassports: PspRolePassport[];
+    pspServicePassports: PspServicePassport[];
+    recordDate: Date;
+    recordVersion: number;
+    website: string;
+    withdrawalDate: Date;
+    created: Date;
+    updated: Date;
+}
+
+export interface RegulatedEntityQuery {
+    id: number;
+}
+
 export interface Restaurant {
     id: number;
     name: string;
@@ -286,6 +334,8 @@ export interface Serializable {
 
 export interface Comparable<T> {
 }
+
+export type PspRole = "CBPII" | "AIS" | "PIS" | "ASPSP";
 
 export type ImageUploadType = "RESTAURANT" | "MEAL";
 

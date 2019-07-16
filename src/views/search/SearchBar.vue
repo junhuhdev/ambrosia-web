@@ -93,8 +93,8 @@
     },
 
     mounted() {
-      this.$store.dispatch('getMealMetadata');
-      this.$store.dispatch('getAllMenuCategories');
+      this.$store.dispatch('selectMealMetadata');
+      this.$store.dispatch('selectMenuCategories');
     },
 
     methods: {
