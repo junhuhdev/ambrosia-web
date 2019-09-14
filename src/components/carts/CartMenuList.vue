@@ -22,7 +22,7 @@
         </v-list-item-content>
         <v-list-item-action>
           <v-icon>mdi-trash-can-outline</v-icon>
-          <v-list-item-action-text v-text="item.price"></v-list-item-action-text>
+          <v-list-item-action-text v-text="item.price" class="subtitle-1 black--text"></v-list-item-action-text>
         </v-list-item-action>
       </v-list-item>
     </v-list-item-group>
