@@ -21,6 +21,7 @@
     data: () => ({
       drawer: null,
       items: [
+        {title: 'Vårt urval', link: '/meal'},
         {title: 'Beställ catering', link: '/restaurant'},
         {title: 'Bli leverantör', link: '/catering'},
         {title: 'Kontakta oss', link: '/catering'},

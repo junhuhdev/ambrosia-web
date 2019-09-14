@@ -97,6 +97,13 @@
         </RestaurantCard>
       </v-col>
     </v-row>
+    <div class="text-center">
+      <v-pagination
+          v-model="page"
+          :length="6"
+      >
+      </v-pagination>
+    </div>
   </v-container>
 </template>
 <script lang="ts">
@@ -111,7 +118,8 @@
     data: () => ({
       date: new Date().toISOString().substr(0, 10),
       menu2: false,
-      totalPeopleSelector: ['5-10 personer', '10-20 personer', '20-100 personer', '100-200 personer', '200+']
+      totalPeopleSelector: ['5-10 personer', '10-20 personer', '20-100 personer', '100-200 personer', '200+'],
+      page: 1
     }),
 
     computed: {
