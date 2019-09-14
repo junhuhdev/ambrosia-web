@@ -30,33 +30,21 @@
           </v-list-item>
         </v-list>
         <v-divider></v-divider>
-        <v-list>
-          <v-list-item>
-            <v-list-item-action>
-              <v-switch v-model="message" color="purple"></v-switch>
-            </v-list-item-action>
-            <v-list-item-title>Enable messages</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-action>
-              <v-switch v-model="hints" color="purple"></v-switch>
-            </v-list-item-action>
-            <v-list-item-title>Enable hints</v-list-item-title>
-          </v-list-item>
-        </v-list>
-        <v-card-actions>
-          <div class="flex-grow-1"></div>
-          <v-btn text @click="menu = false">Cancel</v-btn>
-          <v-btn color="primary" text @click="menu = false">Save</v-btn>
-        </v-card-actions>
+        <CartMenuList></CartMenuList>
+        <v-divider></v-divider>
+        <v-btn block color="primary" dark>Till varukorgen</v-btn>
       </v-card>
     </v-menu>
   </div>
 </template>
 <script lang="ts">
   import Vue from 'vue';
+  import CartMenuList from '@/components/carts/CartMenuList.vue';
 
   export default Vue.extend({
+    components: {
+      CartMenuList
+    },
 
     data: () => ({
       fav: true,

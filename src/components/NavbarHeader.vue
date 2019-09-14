@@ -12,28 +12,6 @@
         <v-btn text v-for="item in items" :key="item.title" :to="item.link">{{item.title}}</v-btn>
       </v-toolbar-items>
       <CartMenu></CartMenu>
-<!--      <v-dialog v-model="dialog" width="600px">-->
-<!--        <template v-slot:activator="{ on }">-->
-<!--          <v-toolbar-items>-->
-<!--            <v-btn text icon v-on="on">-->
-<!--              <v-icon>mdi-cart</v-icon>-->
-<!--            </v-btn>-->
-<!--          </v-toolbar-items>-->
-<!--        </template>-->
-<!--        <v-card>-->
-<!--          <v-card-title>-->
-<!--            <span class="headline">Use Google's location service?</span>-->
-<!--          </v-card-title>-->
-<!--          <v-card-text>-->
-<!--            Lasdsad-->
-<!--          </v-card-text>-->
-<!--          <v-card-actions>-->
-<!--            <div class="flex-grow-1"></div>-->
-<!--            <v-btn color="green darken-1" text @click="dialog = false">Disagree</v-btn>-->
-<!--            <v-btn color="green darken-1" text @click="dialog = false">Agree</v-btn>-->
-<!--          </v-card-actions>-->
-<!--        </v-card>-->
-<!--      </v-dialog>-->
     </v-app-bar>
   </div>
 </template>
