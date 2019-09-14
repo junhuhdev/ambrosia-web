@@ -5,8 +5,8 @@
         <h1 class="display-2 font-weight-thin mb-2">Catering levererad till ditt företag</h1>
         <h4 class="subheading mb-3">Vi har samlat dina bästa lokala cateringkök på en plats</h4>
         <SearchBar class="mt-4"/>
+        <SearchBarV2/>
       </v-layout>
-      <SearchBar/>
     </v-parallax>
     <v-stepper>
       <v-stepper-header>
@@ -29,10 +29,12 @@
 <script lang="ts">
   import Vue from 'vue';
   import SearchBar from '@/views/search/SearchBar.vue';
+  import SearchBarV2 from '@/views/search/SearchBarV2.vue';
 
   export default Vue.extend({
     components: {
-      SearchBar
+      SearchBar,
+      SearchBarV2
     },
   });
 </script>

@@ -1,7 +1,5 @@
 <template>
   <div>
-    <b-row>
-      <b-col>
         <vue-bootstrap-typeahead placeholder="Sök restauranger eller maträtter"
                                  v-model="query"
                                  :serializer="s => s.header + ' - ' + s.subHeader + ' - ' + s.city"
@@ -11,8 +9,6 @@
             <b-button @click="search" variant="primary">Hitta catering nära dig</b-button>
           </template>
         </vue-bootstrap-typeahead>
-      </b-col>
-    </b-row>
   </div>
 </template>
 <script lang="ts">
