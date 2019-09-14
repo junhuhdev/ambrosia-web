@@ -9,6 +9,38 @@
       </v-toolbar>
       <v-card-text>
         <v-row>
+          <v-col cols="3">
+            <v-text-field label="Sök" placeholder="Sök" solo></v-text-field>
+          </v-col>
+          <v-col cols="3">
+            <v-combobox solo placeholder="Stad">
+            </v-combobox>
+          </v-col>
+          <v-col cols="3">
+            <v-menu
+                v-model="menu2"
+                :close-on-content-click="false"
+                transition="scale-transition"
+                offset-y
+                full-width
+            >
+              <template v-slot:activator="{ on }">
+                <v-text-field
+                    v-model="date"
+                    label="Picker without buttons"
+                    readonly
+                    v-on="on"
+                    solo
+                ></v-text-field>
+              </template>
+              <v-date-picker v-model="date" @input="menu2 = false"></v-date-picker>
+            </v-menu>
+          </v-col>
+          <v-col cols="3">
+            <v-select :items="totalPeopleSelector" label="Antal personer" solo></v-select>
+          </v-col>
+        </v-row>
+        <v-row>
           <v-col cols="6">
             <h2 class="title mb-2">Menyer</h2>
             <v-chip-group color="green" column multiple>
@@ -77,7 +109,11 @@
       RestaurantCard
     },
 
-    data: () => ({}),
+    data: () => ({
+      date: new Date().toISOString().substr(0, 10),
+      menu2: false,
+      totalPeopleSelector: ['5-10 personer', '10-20 personer', '20-100 personer', '100-200 personer', '200+']
+    }),
 
     computed: {
 
