@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
+    <v-parallax class="elevation-12" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
       <v-row align="center" justify="center">
         <h1 class="display-2 mb-4">Catering levererad till ditt företag</h1>
       </v-row>
