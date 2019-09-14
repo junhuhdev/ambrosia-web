@@ -1,12 +1,16 @@
 <template>
   <div>
-    <v-app-bar>
+    <v-app-bar app dense color="deep-purple accent-4" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <div class="mr-5">
         <v-toolbar-title>
-          <router-link to="/" class="toolbar-title">BioTrackify</router-link>
+          <router-link to="/" class="toolbar-title">Cater You</router-link>
         </v-toolbar-title>
       </div>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn text v-for="item in items" :key="item.title" :to="item.link">{{item.title}}</v-btn>
+      </v-toolbar-items>
     </v-app-bar>
   </div>
 </template>
@@ -24,4 +28,8 @@
  };
 </script>
 <style scoped>
+  .toolbar-title {
+    color: white;
+    text-decoration: none;
+  }
 </style>
