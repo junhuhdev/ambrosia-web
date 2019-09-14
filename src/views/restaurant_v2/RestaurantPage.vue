@@ -11,7 +11,7 @@
         <v-row>
           <v-col cols="6">
             <h2 class="title mb-2">Menyer</h2>
-            <v-chip-group column multiple>
+            <v-chip-group color="green" column multiple>
               <v-chip filter outlined>Lunch</v-chip>
               <v-chip filter outlined>Middag</v-chip>
               <v-chip filter outlined>Frukost</v-chip>
@@ -26,7 +26,7 @@
           </v-col>
           <v-col cols="6">
             <h2 class="title mb-2">Vad</h2>
-            <v-chip-group column multiple>
+            <v-chip-group color="green" column multiple>
               <v-chip filter outlined>Sallader</v-chip>
               <v-chip filter outlined>Buffé</v-chip>
               <v-chip filter outlined>Dryck</v-chip>
@@ -41,7 +41,7 @@
           </v-col>
           <v-col cols="6">
             <h2 class="title mb-2">Innehåll</h2>
-            <v-chip-group column multiple>
+            <v-chip-group color="green" column multiple>
               <v-chip filter outlined>Vegetariskt</v-chip>
               <v-chip filter outlined>Vegansk</v-chip>
               <v-chip filter outlined>Glutenfri</v-chip>
@@ -51,7 +51,7 @@
           </v-col>
           <v-col cols="6">
             <h2 class="title mb-2">Hållbart val</h2>
-            <v-chip-group column multiple>
+            <v-chip-group color="green" column multiple>
               <v-chip filter outlined>Plastfri</v-chip>
             </v-chip-group>
           </v-col>
