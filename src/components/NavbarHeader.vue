@@ -19,7 +19,7 @@
   data: () => ({
    drawer: null,
    items: [
-    {title: 'Beställ catering', link: '/catering'},
+    {title: 'Beställ catering', link: '/restaurant'},
     {title: 'Bli leverantör', link: '/catering'},
     {title: 'Kontakta oss', link: '/catering'},
     {title: 'Logga in', link: '/catering'},

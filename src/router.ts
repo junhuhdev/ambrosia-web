@@ -17,15 +17,17 @@ import MealRegisterForm from '@/views/meal/MealRegisterForm.vue';
 import MealEditPage from '@/views/meal/MealEditPage.vue';
 import CartCheckoutPage from '@/views/cart/CartCheckoutPage.vue';
 import SearchResultPage from '@/views/search/SearchResultPage.vue';
+import Home from '@/views/Home.vue';
+import RestaurantPage from '@/views/restaurant_v2/RestaurantPage.vue'
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
-    {path: '/', name: 'home', component: HomePage},
+    {path: '/', name: 'home', component: Home},
     {path: '/login', name: 'login', component: Login},
     {path: '/register', name: 'register', component: Register},
-    {path: '/restaurant', name: 'restaurant', component: Restaurant},
+    {path: '/restaurant', name: 'restaurant', component: RestaurantPage},
     {path: '/restaurant/:id', name: 'restaurant-detail', component: RestaurantDetail, props: true},
     {path: '/meal', name: 'meal', component: Meal},
     {path: '/order', name: 'order', component: Order},
