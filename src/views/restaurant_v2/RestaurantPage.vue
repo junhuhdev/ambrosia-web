@@ -22,7 +22,6 @@
                 :close-on-content-click="false"
                 transition="scale-transition"
                 offset-y
-                full-width
             >
               <template v-slot:activator="{ on }">
                 <v-text-field

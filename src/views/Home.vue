@@ -32,6 +32,7 @@
         ></FoodCategoryCard>
       </v-col>
     </v-row>
+    <br><br><br><br><br><br>
   </v-container>
 </template>
 <script lang="ts">

@@ -14,18 +14,20 @@
     </v-app-bar>
   </div>
 </template>
-<script>
- export default {
-  data: () => ({
-   drawer: null,
-   items: [
-    {title: 'Beställ catering', link: '/restaurant'},
-    {title: 'Bli leverantör', link: '/catering'},
-    {title: 'Kontakta oss', link: '/catering'},
-    {title: 'Logga in', link: '/catering'},
-   ]
-  })
- };
+<script lang="ts">
+  import Vue from 'vue';
+
+  export default Vue.extend({
+    data: () => ({
+      drawer: null,
+      items: [
+        {title: 'Beställ catering', link: '/restaurant'},
+        {title: 'Bli leverantör', link: '/catering'},
+        {title: 'Kontakta oss', link: '/catering'},
+        {title: 'Logga in', link: '/catering'},
+      ]
+    })
+  });
 </script>
 <style scoped>
   .toolbar-title {
