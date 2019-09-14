@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.14.505 on 2019-07-02 17:56:18.
+// Generated using typescript-generator version 2.14.505 on 2019-09-14 17:23:48.
 
 export interface Address {
     id: number;
@@ -171,6 +171,7 @@ export interface OrderQuery {
 export interface PspRolePassport {
     countries: string[];
     role: PspRole;
+    countriesString: string;
 }
 
 export interface PspServicePassport {
@@ -212,8 +213,17 @@ export interface RegulatedEntity {
     updated: Date;
 }
 
+export interface RegulatedEntityList {
+    results: RegulatedEntity[];
+    latestRecordDate: Date;
+    lastRecordDateOffset: number;
+}
+
 export interface RegulatedEntityQuery {
     id: number;
+    recordDate: Date;
+    lastRecordDateOffset: number;
+    maximumResults: number;
 }
 
 export interface Restaurant {

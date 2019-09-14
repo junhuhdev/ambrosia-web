@@ -1,13 +1,14 @@
 <template>
-  <div>
-    <h1>Hello</h1>
-    <div v-for="restaurant in restaurants" v-bind:key="restaurant.id">
-      <RestaurantCard
-          v-bind:title="restaurant.name"
-      >
-      </RestaurantCard>
-    </div>
-  </div>
+  <v-container>
+    <v-row no-gutters>
+      <v-col cols="12" sm="3" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
+        <RestaurantCard
+            v-bind:title="restaurant.name"
+        >
+        </RestaurantCard>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script lang="ts">
   import Vue from 'vue';
