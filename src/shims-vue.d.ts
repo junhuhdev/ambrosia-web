@@ -12,3 +12,8 @@ declare module '*.vue' {
   import Vue from 'vue';
   export default Vue;
 }
+
+// declare module 'vuetify' {
+//   var _: any;
+//   export default _;
+// }
