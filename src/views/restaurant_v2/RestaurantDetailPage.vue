@@ -1,6 +1,11 @@
 <template>
   <v-container>
-    <RestaurantDetailHeader/>
+    <RestaurantDetailHeader
+        v-bind:title="'Indian stories'"
+        v-bind:description="'descrpition sadsada...'"
+        v-bind:img="'https://static.wixstatic.com/media/cf86d4_0c72682fbedc4bf78384380ae2bb92b0~mv2_d_2128_1416_s_2.jpg/v1/fill/w_640,h_448,al_c,q_80,usm_0.66_1.00_0.01/cf86d4_0c72682fbedc4bf78384380ae2bb92b0~mv2_d_2128_1416_s_2.webp'"
+    >
+    </RestaurantDetailHeader>
     <v-row>
       <v-col v-for="item in items" :key="item.category" md="6">
         <v-card>
