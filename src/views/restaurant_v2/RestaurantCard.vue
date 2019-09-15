@@ -26,7 +26,7 @@
       </v-card-text>
       <v-divider class="mx-4"></v-divider>
       <v-card-text>
-        <div class="title text--primary">Tonight's availability</div>
+        <div class="title text--primary">Kvällens tillgänglighet</div>
         <v-chip-group
             v-model="selection"
             active-class="deep-purple accent-4 white--text"

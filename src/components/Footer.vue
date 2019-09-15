@@ -4,7 +4,7 @@
     <v-card
         flat
         tile
-        class="indigo lighten-1 white--text text-center"
+        class="pink darken-3 white--text text-center"
     >
       <v-card-text>
         <v-btn

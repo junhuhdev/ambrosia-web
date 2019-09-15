@@ -12,7 +12,7 @@
             <v-btn x-small fab color="red" v-on:click="item.count -= 1">
               <v-icon color="white">mdi-minus</v-icon>
             </v-btn>
-            <v-btn x-small fab>{{item.count}}</v-btn>
+            <v-btn x-small fab class="subtitle-2">{{item.count}}</v-btn>
             <v-btn x-small fab color="red" v-on:click="item.count += 1">
               <v-icon color="white">mdi-plus</v-icon>
             </v-btn>
@@ -33,20 +33,19 @@
     data: () => ({
       toggle: null,
       items: [
-        {
-          img: 'https://d2rfo6yapuixuu.cloudfront.net/h4d/h03/9374221860894/2359715300003_1550505666334_master_axfood_300',
-          title: 'Kyckling hel färsk',
-          subtitle: 'GARANT, ca 1.3 kg',
-          price: '39,00 kr',
-          count: 1
-        },
-        {
-          img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300',
-          title: 'Bacon skivat',
-          subtitle: 'GARANT EKO, 120 g',
-          price: '19,95 kr',
-          count: 1
-        },
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h4d/h03/9374221860894/2359715300003_1550505666334_master_axfood_300', title: 'Kyckling hel färsk', subtitle: 'GARANT, ca 1.3 kg', price: '39,00 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
+        {img: 'https://d2rfo6yapuixuu.cloudfront.net/h04/h23/9086779097118/07340083463143.jpg_1520719678758_master_axfood_300', title: 'Bacon skivat', subtitle: 'GARANT EKO, 120 g', price: '19,95 kr', count: 1},
         {
           img: 'https://d2rfo6yapuixuu.cloudfront.net/he1/h66/8881178214430/07350002402955.jpg_1480078266950_master_axfood_300',
           title: 'Kikärtor ekologiska',
@@ -62,4 +61,8 @@
   });
 </script>
 <style scoped>
+  .v-list {
+    height: 700px;
+    overflow-y: auto;
+  }
 </style>

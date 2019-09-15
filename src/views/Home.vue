@@ -7,7 +7,7 @@
     </v-parallax>
     <br><br>
     <v-row align="center" justify="center">
-      <div><h1>Bra och god mat på jobbet. Made easy.</h1></div>
+      <div><h1>Utforska populära restauranger.</h1></div>
     </v-row>
     <br><br>
     <v-row>

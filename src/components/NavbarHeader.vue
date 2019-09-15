@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar app dense color="deep-purple accent-4" dark>
+    <v-app-bar app dense color="pink darken-3" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <div class="mr-5">
         <v-toolbar-title>
