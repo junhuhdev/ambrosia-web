@@ -1,13 +1,7 @@
 <template>
   <v-container>
+    <RestaurantDetailHeader/>
     <v-row>
-      <v-col cols="12">
-        <v-parallax class="elevation-12" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
-          <v-row align="center" justify="center">
-            <h1 class="display-2 mb-4">Indian Stories</h1>
-          </v-row>
-        </v-parallax>
-      </v-col>
       <v-col v-for="item in items" :key="item.category" md="6">
         <v-card>
           <v-toolbar color="pink lighten-1" dark>
@@ -26,6 +20,7 @@
                   <v-list-item-subtitle v-html="food.subtitle"></v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-action>
+                  <v-list-item-action-text v-text="food.price + ' kr'" class="subtitle-1 black--text"></v-list-item-action-text>
                 </v-list-item-action>
               </v-list-item>
             </v-list-item-group>
@@ -37,8 +32,13 @@
 </template>
 <script lang="ts">
   import Vue from 'vue';
+  import RestaurantDetailHeader from '@/views/restaurant_v2/RestaurantDetailHeader.vue';
 
   export default Vue.extend({
+    components: {
+      RestaurantDetailHeader
+    },
+
     data: () => ({
       items: [
         {
