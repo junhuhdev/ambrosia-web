@@ -20,6 +20,7 @@ import SearchResultPage from '@/views/search/SearchResultPage.vue';
 import Home from '@/views/Home.vue';
 import RestaurantPage from '@/views/restaurant_v2/RestaurantPage.vue'
 import MealPage from '@/views/meal_v2/MealPage.vue';
+import RestaurantDetailPage from '@/views/restaurant_v2/RestaurantDetailPage.vue';
 
 Vue.use(Router);
 
@@ -29,7 +30,7 @@ export default new Router({
     {path: '/login', name: 'login', component: Login},
     {path: '/register', name: 'register', component: Register},
     {path: '/restaurant', name: 'restaurant', component: RestaurantPage},
-    {path: '/restaurant/:id', name: 'restaurant-detail', component: RestaurantDetail, props: true},
+    {path: '/restaurant/:id', name: 'restaurant-detail', component: RestaurantDetailPage, props: true},
     {path: '/meal', name: 'meal', component: MealPage},
     {path: '/order', name: 'order', component: Order},
     {path: '/admin', name: 'admin', component: AdminPage},

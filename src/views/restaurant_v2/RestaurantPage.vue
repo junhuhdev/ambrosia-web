@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <RestaurantFilter></RestaurantFilter>
-    <v-row no-gutters>
+    <v-row>
       <v-col cols="12" sm="3" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
         <RestaurantCard
             v-bind:title="restaurant.name"
