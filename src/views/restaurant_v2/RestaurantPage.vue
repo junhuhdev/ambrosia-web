@@ -4,6 +4,7 @@
     <v-row>
       <v-col cols="12" sm="3" v-for="restaurant in restaurants" v-bind:key="restaurant.id">
         <RestaurantCard
+            v-bind:id="restaurant.id"
             v-bind:title="restaurant.name"
             v-bind:description="restaurant.shortDescription"
         >

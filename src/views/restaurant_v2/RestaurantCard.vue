@@ -44,7 +44,7 @@
               absolute
               color="#036358"
           >
-            <v-btn>Se meny</v-btn>
+            <v-btn :to="{name: 'restaurant-detail', params: {id: id}}">Se meny</v-btn>
           </v-overlay>
         </v-fade-transition>
       </v-card>
@@ -57,6 +57,7 @@
 
   export default Vue.extend({
     props: {
+      id: Number,
       title: String,
       description: String
     },
