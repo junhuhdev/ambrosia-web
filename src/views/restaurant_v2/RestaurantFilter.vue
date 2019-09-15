@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-auto elevation-12" max-width="1200">
-    <v-toolbar dense flat color="pink darken-3" dark>
+    <v-toolbar dense flat color="pink lighten-1" dark>
       <v-btn icon>
         <v-icon>mdi-close</v-icon>
       </v-btn>

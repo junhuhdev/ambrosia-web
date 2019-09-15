@@ -10,13 +10,11 @@
       </v-col>
       <v-col md="8" offset-md="2">
         <v-card>
-          <v-toolbar
-              color="teal"
-              dark
-          >
-            <v-toolbar-title>Frukost</v-toolbar-title>
+          <v-toolbar color="pink lighten-1" dark>
+            <v-row align="center" justify="center">
+              <v-toolbar-title class="text-center">Frukost</v-toolbar-title>
+            </v-row>
           </v-toolbar>
-
           <v-list subheader>
             <v-list-item-group>
               <v-list-item v-for="item in items" :key="item.title">
