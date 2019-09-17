@@ -6,6 +6,7 @@ import * as menu from '@/store/modules/menu';
 import * as meal from '@/store/modules/meal';
 import * as search from '@/store/modules/search';
 import * as order from '@/store/modules/order';
+import * as dialog from '@/store/modules/dialog'
 
 Vue.use(Vuex);
 
@@ -15,7 +16,8 @@ export interface RootState {
   menu: menu.MenuState,
   meal: meal.MealState,
   search: search.SearchState,
-  order: order.OrderState
+  order: order.OrderState,
+  dialog: dialog.DialogState
 }
 
 export default new Vuex.Store<RootState>({
@@ -25,7 +27,8 @@ export default new Vuex.Store<RootState>({
     menu: menu.store,
     meal: meal.store,
     search: search.store,
-    order: order.store
+    order: order.store,
+    dialog: dialog.store
   },
   strict: true
 });
